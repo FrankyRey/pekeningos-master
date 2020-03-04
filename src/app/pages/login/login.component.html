@@ -4,7 +4,6 @@
   <div class="row justify-content-center">
     <div class="col-lg-5 col-md-7">
       <div class="card bg-secondary shadow border-0">
-        
         <div class="card-body px-lg-5 py-lg-5">
           <div class="pb-5 pl-6 pr-6">
             <img class="img-fluid" src="../../../assets/img/brand/logo-pekeningos.png" alt="Logotipo de pequeñingos">
@@ -51,4 +50,53 @@
       </div>
     </div>
   </div>
+<!-- funcionalidad Angular-->
+  <div class="row justify-content-center">
+    <div class="col-lg-5 col-md-7">
+      <div class="card bg-secondary shadow border-0">
+        <div class="card-body px-lg-5 py-lg-5">
+          <div class="pb-5 pl-6 pr-6">
+            <img class="img-fluid" src="../../../assets/img/brand/logo-pekeningos.png" alt="Logotipo de pequeñingos">
+          </div>
+          <div class="text-center text-muted mb-4">
+            <small>Bienvenido, escribe tu usuario y contraseña.</small>
+          </div>
+          <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+            <div class="form-group mb-3">
+              <div class="input-group input-group-alternative">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                </div>
+                <input class="form-control" placeholder="Usuario" type="text" #username="ngModel" [(ngModel)]="user.username" required name="username">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-alternative">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                </div>
+                <input class="form-control" placeholder="Password" type="password" #password="ngModel" [(ngModel)]="user.password" required name="password">
+              </div>
+            </div>
+            <div class="custom-control custom-control-alternative custom-checkbox">
+              <input class="custom-control-input" id=" customCheckLogin" type="checkbox">
+              <label class="custom-control-label" for=" customCheckLogin">
+                <span class="text-muted">Recuérdame</span>
+              </label>
+            </div>
+            <div class="text-center">
+              <input type="submit" class="btn btn-primary" value="Iniciar" [disabled]="loginForm.invalid"/>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-12">
+          <a href="javascript:void(0)" class="text-white"><small>¿Olvidaste tu contraseña?</small></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 </div>
