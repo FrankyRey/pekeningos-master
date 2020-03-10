@@ -53,6 +53,6 @@ export class FosUserService {
       this.token = null
     }
 
-    return null;
+    return this.token;
   }
 }
