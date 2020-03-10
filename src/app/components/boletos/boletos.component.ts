@@ -25,6 +25,7 @@ export class BoletosComponent implements OnInit {
   ) {
     this.identity = _fosUserService.getIdentity();
     this.token = _fosUserService.getToken();
+    this.boleto = new Boleto(1,'',0,0,'save','Guardar');
   }
 
   ngOnInit(): void {
@@ -45,13 +46,89 @@ export class BoletosComponent implements OnInit {
     );
   }
 
-  save() {
-    console.log(this.token);
-    /*this._boletosService.index().subscribe(
+  save(form) {
+    console.log(this.boleto);
+    if(this.boleto.action == 'save') {
+      this._boletosService.store(this.boleto, this.token).subscribe(
+        response => {
+          if( response.status == 'success' ) {
+            this.boleto = response.boleto;
+            this._boletosService.index().subscribe(
+              response => {
+                if( response.status == 'success' ) {
+                  this.boletos = response.boletos;
+                  console.log(this.boletos);
+                } else {
+                  console.log('Sin datos recuperados');
+                }
+              },
+              error => {
+                this.status = 'error';
+                console.log(<any>error);
+              }
+            );
+          } else {
+            console.log('Sin datos recuperados');
+          }
+        },
+        error => {
+          this.status = 'error';
+          console.log(<any>error);
+        }
+      );
+    } else {
+      this._boletosService.update(this.boleto, this.token).subscribe(
+        response => {
+          if( response.status == 'success' ) {
+            this.boleto = response.boleto;
+            this._boletosService.index().subscribe(
+              response => {
+                if( response.status == 'success' ) {
+                  this.boletos = response.boletos;
+                  console.log(this.boletos);
+                } else {
+                  console.log('Sin datos recuperados');
+                }
+              },
+              error => {
+                this.status = 'error';
+                console.log(<any>error);
+              }
+            );
+          } else {
+            console.log('Sin datos recuperados');
+          }
+        },
+        error => {
+          this.status = 'error';
+          console.log(<any>error);
+        }
+      );
+    }
+    this.boleto = new Boleto(1,'',0,0,'save','Guardar');
+  }
+
+  delete(id) {
+    let boletoTmp = new Boleto(1,'',0,0,'save','Guardar');
+    console.log('Desde eliminar' + id);
+    this._boletosService.destroy(id, this.token).subscribe(
       response => {
         if( response.status == 'success' ) {
-          this.boletos = response.boletos;
-          console.log(this.boletos);
+          boletoTmp = response.boleto;
+          this._boletosService.index().subscribe(
+            response => {
+              if( response.status == 'success' ) {
+                this.boletos = response.boletos;
+                console.log(this.boletos);
+              } else {
+                console.log('Sin datos recuperados');
+              }
+            },
+            error => {
+              this.status = 'error';
+              console.log(<any>error);
+            }
+          );
         } else {
           console.log('Sin datos recuperados');
         }
@@ -60,7 +137,15 @@ export class BoletosComponent implements OnInit {
         this.status = 'error';
         console.log(<any>error);
       }
-    );*/
+    );
+    this.boleto = new Boleto(1,'',0,0,'save','Guardar');
+  }
+
+  edit(indice) {
+    this.boleto = this.boletos[indice];
+    this.boleto.action = 'update';
+    this.boleto.button = 'Actualizar';
+    console.log(this.boleto);
   }
 
 }
