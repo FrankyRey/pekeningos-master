@@ -19,6 +19,7 @@ import { ValidaOrdenComponent } from './valida-orden/valida-orden.component';
 import { PagoBoletosComponent } from './pago-boletos/pago-boletos.component';
 import { ProductosVentaComponent } from './productos-venta/productos-venta.component';
 import { EstatusProductosComponent } from './estatus-productos/estatus-productos.component';
+import { CategoriasProductosComponent } from './categorias-productos/categorias-productos.component';
 
 @NgModule({
   imports: [
@@ -43,7 +44,8 @@ import { EstatusProductosComponent } from './estatus-productos/estatus-productos
     ValidaOrdenComponent,
     PagoBoletosComponent,
     ProductosVentaComponent,
-    EstatusProductosComponent
+    EstatusProductosComponent,
+    CategoriasProductosComponent
   ],
   exports: [
     FooterComponent,

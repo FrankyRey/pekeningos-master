@@ -1,0 +1,86 @@
+<div class="header bg-gradient-yellow pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <!-- Card stats -->
+      <div class="row">
+        <div class="col-xl-12 col-lg-12">
+          <h2 class="component-description">Categorias de los productos que están a la venta.</h2>
+        </div>  
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid mt--7">
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <h3 class="mb-0">Boletos</h3>
+        </div>
+        <div class="table-responsive">
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Código</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody *ngIf="categoriasProductos?.length > 0; else elseBlock">
+              <tr *ngFor="let categoria of categoriasProductos; let i = index">
+                <th scope="row" class="text-center">
+                  {{ categoria.id }}
+                </th>
+                <th scope="row" class="text-center">
+                  {{ categoria.nombre }}
+                </th>
+              </tr>
+            </tbody>
+            <ng-template #elseBlock>
+              <tbody>
+                <tr>
+                  <td colspan="2">
+                    Sin datos encontrados
+                  </td>
+                </tr>
+              </tbody>
+            </ng-template>
+          </table>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary my-4" role="button" data-toggle="modal" data-target="#nuevaCategoria">Agregar Nuevo</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="nuevaCategoria" tabindex="-1" role="dialog" aria-labelledby="nuevaCategoria" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <form #categoriaForm="ngForm" (ngSubmit)="save(categoriaForm)">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Nueva Categoria</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group mb-3">
+              <div class="input-group">
+                <input class="form-control" placeholder="Descripción" type="text" name="descripcion" required #descripcion="ngModel" [(ngModel)]="categoriaProducto.descripcion">
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            <div class="text-center">
+              <input type="submit" class="btn btn-primary" value="Agregar" [disabled]="categoriaForm.invalid"/>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+  
