@@ -18,6 +18,7 @@ import { ResumenVentaComponent } from './resumen-venta/resumen-venta.component';
 import { ValidaOrdenComponent } from './valida-orden/valida-orden.component';
 import { PagoBoletosComponent } from './pago-boletos/pago-boletos.component';
 import { ProductosVentaComponent } from './productos-venta/productos-venta.component';
+import { EstatusProductosComponent } from './estatus-productos/estatus-productos.component';
 
 @NgModule({
   imports: [
@@ -41,7 +42,8 @@ import { ProductosVentaComponent } from './productos-venta/productos-venta.compo
     ResumenVentaComponent,
     ValidaOrdenComponent,
     PagoBoletosComponent,
-    ProductosVentaComponent
+    ProductosVentaComponent,
+    EstatusProductosComponent
   ],
   exports: [
     FooterComponent,

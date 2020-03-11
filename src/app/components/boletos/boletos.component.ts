@@ -48,6 +48,7 @@ export class BoletosComponent implements OnInit {
 
   save(form) {
     console.log(this.boleto);
+    this.boleto = new Boleto(1,'',0,0,'save','Guardar');
     if(this.boleto.action == 'save') {
       this._boletosService.store(this.boleto, this.token).subscribe(
         response => {
@@ -56,6 +57,7 @@ export class BoletosComponent implements OnInit {
             this._boletosService.index().subscribe(
               response => {
                 if( response.status == 'success' ) {
+                  this.boleto = new Boleto(1,'',0,0,'save','Guardar');
                   this.boletos = response.boletos;
                   console.log(this.boletos);
                 } else {
@@ -63,15 +65,18 @@ export class BoletosComponent implements OnInit {
                 }
               },
               error => {
+                this.boleto = new Boleto(1,'',0,0,'save','Guardar');
                 this.status = 'error';
                 console.log(<any>error);
               }
             );
           } else {
+            this.boleto = new Boleto(1,'',0,0,'save','Guardar');
             console.log('Sin datos recuperados');
           }
         },
         error => {
+          this.boleto = new Boleto(1,'',0,0,'save','Guardar');
           this.status = 'error';
           console.log(<any>error);
         }
@@ -84,28 +89,32 @@ export class BoletosComponent implements OnInit {
             this._boletosService.index().subscribe(
               response => {
                 if( response.status == 'success' ) {
+                  this.boleto = new Boleto(1,'',0,0,'save','Guardar');
                   this.boletos = response.boletos;
                   console.log(this.boletos);
                 } else {
+                  this.boleto = new Boleto(1,'',0,0,'save','Guardar');
                   console.log('Sin datos recuperados');
                 }
               },
               error => {
+                this.boleto = new Boleto(1,'',0,0,'save','Guardar');
                 this.status = 'error';
                 console.log(<any>error);
               }
             );
           } else {
+            this.boleto = new Boleto(1,'',0,0,'save','Guardar');
             console.log('Sin datos recuperados');
           }
         },
         error => {
+          this.boleto = new Boleto(1,'',0,0,'save','Guardar');
           this.status = 'error';
           console.log(<any>error);
         }
       );
     }
-    this.boleto = new Boleto(1,'',0,0,'save','Guardar');
   }
 
   delete(id) {
@@ -138,7 +147,6 @@ export class BoletosComponent implements OnInit {
         console.log(<any>error);
       }
     );
-    this.boleto = new Boleto(1,'',0,0,'save','Guardar');
   }
 
   edit(indice) {

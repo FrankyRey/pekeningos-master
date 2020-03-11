@@ -14,6 +14,9 @@ export const ROUTES: RouteInfo[] = [
     { path: '/productos', title: 'Productos',  icon:'ni-single-02 text-yellow', class: '' },
     { path: '/boletos', title: 'Boletos',  icon:'ni-bullet-list-67 text-red', class: '' },
     { path: '/ordenes', title: 'Órdenes',  icon:'ni-key-25 text-info', class: '' },
+    { path: '/estatusOrdenes', title: 'Estatus Ordenes',  icon:'ni-archive-2 text-info', class: '' },
+    { path: '/categoriasProductos', title: 'Categorias Productos',  icon:'ni-archive-2 text-info', class: '' },
+    { path: '/estatus-productos', title: 'Estatus Productos',  icon:'ni-delivery-fast text-info', class: '' },
 ];
 
 @Component({

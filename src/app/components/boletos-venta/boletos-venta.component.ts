@@ -10,6 +10,7 @@ import { Boleto } from '../../models/boleto';
   providers: [ BoletosService, OrdenesService ]
 })
 export class BoletosVentaComponent implements OnInit {
+  public status: string;
   public boletos: Array<Boleto>;
 
   constructor(private _boletosService: BoletosService, private _ordenesService: OrdenesService) { }
