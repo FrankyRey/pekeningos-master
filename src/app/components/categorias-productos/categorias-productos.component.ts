@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CategoriasProductosService } from '../../services/categorias-productos.service';
 import { FosUserService } from '../../services/fos-user.service';
 import { CategoriaProducto } from '../../models/categoria-producto';
+import { ModalCategoriaProductoComponent } from '../modal-categoria-producto/modal-categoria-producto.component';
 
 @Component({
   selector: 'app-categorias-productos',
@@ -20,6 +22,7 @@ export class CategoriasProductosComponent implements OnInit {
   	constructor(
     	private _categoriasProductosService: CategoriasProductosService,
     	private _fosUserService: FosUserService,
+      private _modalService: NgbModal,
   	) {
     	this.identity = _fosUserService.getIdentity();
     	this.token = _fosUserService.getToken();
@@ -27,7 +30,6 @@ export class CategoriasProductosComponent implements OnInit {
   	}
 
   	ngOnInit(): void {
-  		console.log(this._categoriasProductosService.test());
   		this._categoriasProductosService.index().subscribe(
       		response => {
         		if( response.status == 'success' ) {
@@ -42,24 +44,24 @@ export class CategoriasProductosComponent implements OnInit {
         		console.log(<any>error);
       		}
     	);
-  	}
-
-  	save() {
-  		this._categoriasProductosService.store(this.categoriaProducto, this.token).subscribe(
-  			response => {
-  				if( response.status == 'success' ) {
-  					this.categoriaProducto = response.categoriaProducto;
-  					console.log(this.categoriaProducto);
-  				} else {
-  					console.log('Sin datos recuperados');
-  				}
-  			},
-  			error => {
-  				this.status = 'error';
-  				console.log(<any>error);
-  			}
-
-  		);
-  	}
+	}
+	  
+    new( action, indice = null) {
+		if( action == "save" ) {
+      		const modalRef = this._modalService.open(ModalCategoriaProductoComponent);
+	  		modalRef.componentInstance.boton = 'Guardar';
+	  		modalRef.componentInstance.title = 'Agregar Nueva Categoria';
+	  		modalRef.componentInstance.token = this.token;
+	  		modalRef.componentInstance.identity = this.identity;
+		  	modalRef.componentInstance.categoriaProducto = this.categoriaProducto;
+		} else {
+			const modalRef = this._modalService.open(ModalCategoriaProductoComponent);
+	  		modalRef.componentInstance.boton = 'Actualizar';
+	  		modalRef.componentInstance.title = 'Actualizar Categoria';
+	  		modalRef.componentInstance.token = this.token;
+	  		modalRef.componentInstance.identity = this.identity;
+			modalRef.componentInstance.categoriaProducto = this.categoriasProductos[indice];
+		}	
+    }
 
 }

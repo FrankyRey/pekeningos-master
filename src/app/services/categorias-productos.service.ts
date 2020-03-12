@@ -27,4 +27,12 @@ export class CategoriasProductosService {
 
     return this._http.post('http://localhost:8000/api/categoriaProducto', params, { headers:headers });
   }
+
+  update(categoriaProducto, token): Observable<any> {
+    let json = JSON.stringify(categoriaProducto);
+    let params = 'json='+json;
+    let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded').set('Authorization', token);
+
+    return this._http.put('http://localhost:8000/api/categoriaProducto/' + categoriaProducto.id, params, { headers:headers });
+  }
 }

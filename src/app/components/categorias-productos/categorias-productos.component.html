@@ -15,7 +15,7 @@
     <div class="col">
       <div class="card shadow">
         <div class="card-header border-0">
-          <h3 class="mb-0">Boletos</h3>
+          <h3 class="mb-0">Categorias</h3>
         </div>
         <div class="table-responsive">
           <table class="table align-items-center table-flush">
@@ -28,11 +28,14 @@
             </thead>
             <tbody *ngIf="categoriasProductos?.length > 0; else elseBlock">
               <tr *ngFor="let categoria of categoriasProductos; let i = index">
-                <th scope="row" class="text-center">
+                <th scope="row">
                   {{ categoria.id }}
                 </th>
-                <th scope="row" class="text-center">
+                <th scope="row">
                   {{ categoria.nombre }}
+                </th>
+                <th>
+                  <a (click)="new( 'edit', i )" class="btn btn-link text-primary">Editar</a>
                 </th>
               </tr>
             </tbody>
@@ -48,37 +51,8 @@
           </table>
         </div>
         <div class="card-footer">
-          <button class="btn btn-primary my-4" role="button" data-toggle="modal" data-target="#nuevaCategoria">Agregar Nuevo</button>
+          <button class="btn btn-primary my-4" (click)="new('save')">Agregar Nuevo</button>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal -->
-  <div class="modal fade" id="nuevaCategoria" tabindex="-1" role="dialog" aria-labelledby="nuevaCategoria" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <form #categoriaForm="ngForm" (ngSubmit)="save(categoriaForm)">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Nueva Categoria</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="form-group mb-3">
-              <div class="input-group">
-                <input class="form-control" placeholder="Descripción" type="text" name="descripcion" required #descripcion="ngModel" [(ngModel)]="categoriaProducto.descripcion">
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            <div class="text-center">
-              <input type="submit" class="btn btn-primary" value="Agregar" [disabled]="categoriaForm.invalid"/>
-            </div>
-          </div>
-        </form>
       </div>
     </div>
   </div>

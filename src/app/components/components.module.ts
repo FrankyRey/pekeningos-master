@@ -20,6 +20,8 @@ import { PagoBoletosComponent } from './pago-boletos/pago-boletos.component';
 import { ProductosVentaComponent } from './productos-venta/productos-venta.component';
 import { EstatusProductosComponent } from './estatus-productos/estatus-productos.component';
 import { CategoriasProductosComponent } from './categorias-productos/categorias-productos.component';
+import { ModalCategoriaProductoComponent } from './modal-categoria-producto/modal-categoria-producto.component';
+import { ModalEstatusProductoComponent } from './modal-estatus-producto/modal-estatus-producto.component';
 
 @NgModule({
   imports: [
@@ -45,7 +47,9 @@ import { CategoriasProductosComponent } from './categorias-productos/categorias-
     PagoBoletosComponent,
     ProductosVentaComponent,
     EstatusProductosComponent,
-    CategoriasProductosComponent
+    CategoriasProductosComponent,
+    ModalCategoriaProductoComponent,
+    ModalEstatusProductoComponent
   ],
   exports: [
     FooterComponent,
