@@ -1,0 +1,48 @@
+<form #usuarioForm="ngForm" (ngSubmit)="saveEdit(usuarioForm)">
+    <div class="modal-header">
+        <h4 class="modal-title">{{ title }}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="form-group mb-3">
+            <div class="input-group">
+                <input class="form-control" placeholder="Nombre" type="text" name="name" required #name="ngModel" [(ngModel)]="usuario.name">
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <div class="input-group">
+                <input class="form-control" placeholder="Apellido" type="text" name="last_name" required #last_name="ngModel" [(ngModel)]="usuario.last_name">
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <div class="input-group">
+                <input class="form-control" placeholder="Usuario" type="text" name="username" required #username="ngModel" [(ngModel)]="usuario.username">
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <div class="input-group">
+                <input class="form-control" placeholder="Contraseña" type="password" name="password" required #password="ngModel" [(ngModel)]="usuario.password">
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <div class="input-group">
+                <input class="form-control" placeholder="email" type="email" name="email" required #email="ngModel" [(ngModel)]="usuario.email">
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <div class="input-group">
+                <select class="form-control" placeholder="Seleccione" name="role" required #role="ngModel" [(ngModel)]="usuario.role" [value]="usuario.role">
+                    <option *ngFor="let rol of roles" [value]="rol">
+                        {{ rol }}
+                    </option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Click button')">Close</button>
+        <input type="submit" class="btn btn-primary" value="{{ boton }}" [disabled]="usuarioForm.invalid" />
+    </div>
+</form>

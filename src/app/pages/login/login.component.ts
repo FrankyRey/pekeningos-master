@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router, ActivatedRoute, Params } from "@angular/router";
 import { User } from '../../models/user';
 import { FosUserService } from '../../services/fos-user.service';
 
@@ -14,7 +15,10 @@ export class LoginComponent implements OnInit {
   public token;
   public identity;
 
-  constructor(private _FosUserService: FosUserService) {
+  constructor(
+    private _FosUserService: FosUserService,  
+    private _route: ActivatedRoute,
+    private _router: Router) {
     this.user = new User(1,'','','','','ROLE_USER','','','');
   }
 
@@ -42,6 +46,10 @@ export class LoginComponent implements OnInit {
               // Persistir datos del usuario
               localStorage.setItem('token', this.token);
               localStorage.setItem('identity', JSON.stringify(this.identity));
+              //Redireccionar a AdminComponent
+              alert(this.identity);
+              alert(this.token);
+              this._router.navigate(['/dashboard']);
             },
             error => {
               this.status = 'error';

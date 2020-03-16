@@ -22,6 +22,8 @@ import { EstatusProductosComponent } from './estatus-productos/estatus-productos
 import { CategoriasProductosComponent } from './categorias-productos/categorias-productos.component';
 import { ModalCategoriaProductoComponent } from './modal-categoria-producto/modal-categoria-producto.component';
 import { ModalEstatusProductoComponent } from './modal-estatus-producto/modal-estatus-producto.component';
+import { ModalProductosComponent } from './modal-productos/modal-productos.component';
+import { ModalUsuariosComponent } from './modal-usuarios/modal-usuarios.component';
 
 @NgModule({
   imports: [
@@ -49,7 +51,9 @@ import { ModalEstatusProductoComponent } from './modal-estatus-producto/modal-es
     EstatusProductosComponent,
     CategoriasProductosComponent,
     ModalCategoriaProductoComponent,
-    ModalEstatusProductoComponent
+    ModalEstatusProductoComponent,
+    ModalProductosComponent,
+    ModalUsuariosComponent
   ],
   exports: [
     FooterComponent,

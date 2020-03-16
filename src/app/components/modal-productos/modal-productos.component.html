@@ -1,0 +1,52 @@
+<form #productoForm="ngForm" (ngSubmit)="saveEdit(productoForm)">
+    <div class="modal-header">
+        <h4 class="modal-title">{{ title }}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="form-group mb-3">
+            <div class="input-group">
+                <input class="form-control" placeholder="Descripción corta" type="text" name="descripcion_corta" required #descripcion_corta="ngModel" [(ngModel)]="producto.descripcion_corta">
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <div class="input-group">
+                <input class="form-control" placeholder="Inventario" type="text" name="inventario" required #inventario="ngModel" [(ngModel)]="producto.inventario">
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <div class="input-group">
+                <input class="form-control" placeholder="Costo" type="text" name="costo" required #costo="ngModel" [(ngModel)]="producto.costo">
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <div class="input-group">
+                <input class="form-control" placeholder="Precio de Venta" type="text" name="precio_venta" required #precio_venta="ngModel" [(ngModel)]="producto.precio_venta">
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <div class="input-group">
+                <select class="form-control" placeholder="Seleccione" type="text" name="estatus" required #estatus="ngModel" [(ngModel)]="producto.estatus" [value]="producto.estatus">
+                    <option *ngFor="let estatusP of estatusProductos" [value]="estatusP.id">
+                        {{ estatusP.nombre }}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <div class="input-group">
+                <select class="form-control" placeholder="Seleccione" type="text" name="categoria" required #categoria="ngModel" [(ngModel)]="producto.categoria">
+                    <option *ngFor="let categoriaP of categoriasProductos" [(ngValue)]="categoriaP.id">
+                        {{ categoriaP.nombre }}
+                    </option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Click button')">Close</button>
+        <input type="submit" class="btn btn-primary" value="{{ boton }}" [disabled]="productoForm.invalid" />
+    </div>
+</form>

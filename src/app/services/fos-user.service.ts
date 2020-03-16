@@ -20,6 +20,12 @@ export class FosUserService {
     return "Hola mundo desde FosUserService";
   }
 
+  index(): Observable<any> {
+    let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+
+    return this._http.get('http://localhost:8000/api/user/all', {headers: headers});
+  }
+
   singup(user, gettoken = null): Observable<any> {
     if(gettoken != null) {
       user.getToken = true;
@@ -54,5 +60,13 @@ export class FosUserService {
     }
 
     return this.token;
+  }
+
+  store( producto, token): Observable<any> {
+    let json = JSON.stringify(producto);
+    let params = 'json='+json;
+    let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded').set('Authorization', token);
+
+    return this._http.post('http://localhost:8000/api/user/register', params, { headers:headers });
   }
 }
