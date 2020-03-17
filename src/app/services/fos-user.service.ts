@@ -74,7 +74,7 @@ export class FosUserService {
     let json = JSON.stringify(user);
     let params = 'json='+json;
     let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded').set('Authorization', token);
-
-    return this._http.put('http://localhost:8000/api/user/update' + user.id, params, { headers:headers });
+    console.log(params);
+    return this._http.put('http://localhost:8000/api/user/update', params, { headers:headers });
   }
 }

@@ -88,6 +88,7 @@ export class ModalProductosComponent implements OnInit {
           			if( response.status == 'success' ) {
            				this.producto = response.producto;
             			console.log(this.producto);
+                  this.activeModal.close('success');
           			} else {
             			console.log('Sin datos recuperados');
           			}

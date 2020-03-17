@@ -48,12 +48,13 @@ export class ModalUsuariosComponent implements OnInit {
     	} else {
     		this._fosUserService.update(this.usuario, this.token).subscribe(
         		response => {
-          			if( response.status == 'success' ) {
+                console.log(response);
+          			/*if( response.status == 'success' ) {
            				this.usuario = response.usuario;
             			console.log(this.usuario);
           			} else {
             			console.log('Sin datos recuperados');
-          			}
+          			}*/
         		},
         		error => {
           			this.status = 'error';
