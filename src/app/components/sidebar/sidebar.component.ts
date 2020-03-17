@@ -6,17 +6,18 @@ declare interface RouteInfo {
     title: string;
     icon: string;
     class: string;
+    category: string;
 }
 export const ROUTES: RouteInfo[] = [
-    { path: '/dashboard', title: 'Dashboard',  icon: 'ni-tv-2 text-primary', class: '' },
-    { path: '/fos-user', title: 'FOS USER',  icon:'ni-planet text-blue', class: '' },
-    { path: '/clientes', title: 'Clientes',  icon:'ni-pin-3 text-orange', class: '' },
-    { path: '/productos', title: 'Productos',  icon:'ni-single-02 text-yellow', class: '' },
-    { path: '/boletos', title: 'Boletos',  icon:'ni-bullet-list-67 text-red', class: '' },
-    { path: '/ordenes', title: 'Órdenes',  icon:'ni-key-25 text-info', class: '' },
-    { path: '/estatusOrdenes', title: 'Estatus Ordenes',  icon:'ni-archive-2 text-info', class: '' },
-    { path: '/categorias-productos', title: 'Categorias Productos',  icon:'ni-archive-2 text-info', class: '' },
-    { path: '/estatus-productos', title: 'Estatus Productos',  icon:'ni-delivery-fast text-info', class: '' },
+    { path: '/dashboard', title: 'Dashboard',  icon: 'ni-tv-2 text-primary', class: '', category:'Módulo' },
+    { path: '/fos-user', title: 'FOS USER',  icon:'ni-planet text-blue', class: '', category:'Módulo' },
+    { path: '/clientes', title: 'Clientes',  icon:'ni-pin-3 text-orange', class: '', category:'Módulo' },
+    { path: '/productos', title: 'Productos',  icon:'ni-single-02 text-yellow', class: '', category:'Módulo' },
+    { path: '/boletos', title: 'Boletos',  icon:'ni-bullet-list-67 text-red', class: '', category:'Módulo' },
+    { path: '/ordenes', title: 'Órdenes',  icon:'ni-key-25 text-info', class: '', category:'Módulo' },
+    { path: '/estatusOrdenes', title: 'Estatus Ordenes',  icon:'ni-archive-2 text-primary', class: '', category:'Catálogo' },
+    { path: '/categorias-productos', title: 'Categorias Productos',  icon:'ni-folder-17 text-orange', class: '', category:'Catálogo' },
+    { path: '/estatus-productos', title: 'Estatus Productos',  icon:'ni-delivery-fast text-yellow', class: '', category:'Catálogo' },
 ];
 
 @Component({

@@ -69,4 +69,12 @@ export class FosUserService {
 
     return this._http.post('http://localhost:8000/api/user/register', params, { headers:headers });
   }
+
+  update( user, token ) { 
+    let json = JSON.stringify(user);
+    let params = 'json='+json;
+    let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded').set('Authorization', token);
+
+    return this._http.put('http://localhost:8000/api/user/update' + user.id, params, { headers:headers });
+  }
 }

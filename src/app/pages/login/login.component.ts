@@ -47,8 +47,6 @@ export class LoginComponent implements OnInit {
               localStorage.setItem('token', this.token);
               localStorage.setItem('identity', JSON.stringify(this.identity));
               //Redireccionar a AdminComponent
-              alert(this.identity);
-              alert(this.token);
               this._router.navigate(['/dashboard']);
             },
             error => {

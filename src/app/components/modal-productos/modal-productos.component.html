@@ -37,8 +37,8 @@
         </div>
         <div class="form-group mb-3">
             <div class="input-group">
-                <select class="form-control" placeholder="Seleccione" type="text" name="categoria" required #categoria="ngModel" [(ngModel)]="producto.categoria">
-                    <option *ngFor="let categoriaP of categoriasProductos" [(ngValue)]="categoriaP.id">
+                <select class="form-control" placeholder="Seleccione" type="text" name="categoria" required #categoria="ngModel" [(ngModel)]="producto.categoria" [value]="producto.estatus">
+                    <option *ngFor="let categoriaP of categoriasProductos" [value]="categoriaP.id">
                         {{ categoriaP.nombre }}
                     </option>
                 </select>
