@@ -1,20 +1,44 @@
 <form #estatusForm="ngForm" (ngSubmit)="saveEdit(estatusForm)">
-    <div class="modal-header">
-        <h4 class="modal-title">{{ title }}</h4>
-        <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
-            <span aria-hidden="true">&times;</span>
-        </button>
+  <div class="modal-header">
+    <h4 class="modal-title">{{ title }}</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="activeModal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-group mb-3">
+      <div class="form-group">
+        <label class="form-control-label" for="nombre">Descripción</label>
+        <input
+          class="form-control"
+          placeholder="Descripción"
+          type="text"
+          name="nombre"
+          required
+          #nombre="ngModel"
+          [(ngModel)]="estatusProducto.nombre"
+        />
+      </div>
     </div>
-    <div class="modal-body">
-        <div class="form-group mb-3">
-            <div class="form-group">
-                <label class="form-control-label" for="nombre">Descripción</label>
-                <input class="form-control" placeholder="Descripción" type="text" name="nombre" required #nombre="ngModel" [(ngModel)]="estatusProducto.nombre">
-            </div>
-        </div>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-danger" (click)="activeModal.close('Close click')">Cerrar</button>
-        <input type="submit" class="btn btn-primary" value="{{ boton }}" [disabled]="estatusForm.invalid" />
-    </div>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-danger"
+      (click)="activeModal.close('Close click')"
+    >
+      Cerrar
+    </button>
+    <input
+      type="submit"
+      class="btn btn-primary"
+      value="{{ boton }}"
+      [disabled]="estatusForm.invalid"
+    />
+  </div>
 </form>
