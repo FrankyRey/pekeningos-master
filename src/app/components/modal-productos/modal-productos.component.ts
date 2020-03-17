@@ -66,8 +66,10 @@ export class ModalProductosComponent implements OnInit {
   }
 
   	saveEdit() {
+		 
     	if(this.boton == 'Guardar') {
-      		this._productosService.store(this.producto, this.token).subscribe(
+			console.log(this.producto);
+      	this._productosService.store(this.producto, this.token).subscribe(
         		response => {
           			if( response.status == 'success' ) {
            				this.producto = response.producto;
@@ -81,9 +83,10 @@ export class ModalProductosComponent implements OnInit {
           			this.status = 'error';
           			console.log(<any>error);
         		}
-      		);
+      		); 
     	} else {
-    		this._productosService.update(this.producto, this.token).subscribe(
+			console.log(this.producto);
+    	this._productosService.update(this.producto, this.token).subscribe(
         		response => {
           			if( response.status == 'success' ) {
            				this.producto = response.producto;
@@ -97,7 +100,7 @@ export class ModalProductosComponent implements OnInit {
           			this.status = 'error';
           			console.log(<any>error);
         		}
-      		);
+      		); 
     	}
 	}
 }

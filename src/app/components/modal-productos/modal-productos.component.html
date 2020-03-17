@@ -7,37 +7,45 @@
     </div>
     <div class="modal-body">
         <div class="form-group mb-3">
-            <div class="input-group">
-                <input class="form-control" placeholder="Descripción corta" type="text" name="descripcion_corta" required #descripcion_corta="ngModel" [(ngModel)]="producto.descripcion_corta">
+            <div class="form-group">
+                <label class="form-control-label" for="descripcion_corta">Descripción corta</label>
+                <input class="form-control form-control-alternative" placeholder="Descripción corta" type="text" name="descripcion_corta" required #descripcion_corta="ngModel" [(ngModel)]="producto.descripcion_corta">
             </div>
         </div>
         <div class="form-group mb-3">
-            <div class="input-group">
-                <input class="form-control" placeholder="Inventario" type="text" name="inventario" required #inventario="ngModel" [(ngModel)]="producto.inventario">
+            <div class="form-group">
+                <label class="form-control-label" for="inventario">Inventario</label>
+                <input class="form-control form-control-alternative" placeholder="Inventario" type="text" name="inventario" required #inventario="ngModel" [(ngModel)]="producto.inventario">
             </div>
         </div>
         <div class="form-group mb-3">
-            <div class="input-group">
-                <input class="form-control" placeholder="Costo" type="text" name="costo" required #costo="ngModel" [(ngModel)]="producto.costo">
+            <div class="form-group">
+                <label class="form-control-label" for="cosoto">Costo</label>
+                <input class="form-control form-control-alternative" placeholder="Costo" type="text" name="costo" required #costo="ngModel" [(ngModel)]="producto.costo">
             </div>
         </div>
         <div class="form-group mb-3">
-            <div class="input-group">
-                <input class="form-control" placeholder="Precio de Venta" type="text" name="precio_venta" required #precio_venta="ngModel" [(ngModel)]="producto.precio_venta">
+            <div class="form-group">
+                <label class="form-control-label" for="precio_venta">Precio de venta</label>
+                <input class="form-control form-control-alternative" placeholder="Precio de Venta" type="text" name="precio_venta" required #precio_venta="ngModel" [(ngModel)]="producto.precio_venta">
             </div>
         </div>
         <div class="form-group mb-3">
-            <div class="input-group">
-                <select class="form-control" placeholder="Seleccione" type="text" name="estatus" required #estatus="ngModel" [(ngModel)]="producto.estatus" [value]="producto.estatus">
+            <div class="form-group">
+                <label class="form-control-label" for="estatus">Estatus del producto</label>
+                <select class="form-control form-control-alternative" name="estatus" required [(ngModel)]="producto.estatus.id" [value]="producto.estatus.id">
+                    <option value="">Selecciona el estatus del producto...</option>
                     <option *ngFor="let estatusP of estatusProductos" [value]="estatusP.id">
-                        {{ estatusP.nombre }}
+                       {{ estatusP.nombre }}
                     </option>
                 </select>
             </div>
         </div>
         <div class="form-group mb-3">
-            <div class="input-group">
-                <select class="form-control" placeholder="Seleccione" type="text" name="categoria" required #categoria="ngModel" [(ngModel)]="producto.categoria" [value]="producto.estatus">
+            <div class="form-group">
+                <label class="form-control-label" for="categoria">Categoría del producto</label>
+                <select class="form-control form-control-alternative" name="categoria" required [(ngModel)]="producto.categoria.id" [value]="producto.categoria.id">
+                    <option value="">Selecciona la categoría del producto...</option>
                     <option *ngFor="let categoriaP of categoriasProductos" [value]="categoriaP.id">
                         {{ categoriaP.nombre }}
                     </option>
@@ -46,7 +54,7 @@
         </div>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Click button')">Close</button>
+        <button type="button" class="btn btn-danger" (click)="activeModal.close('Click button')">Cerrar</button>
         <input type="submit" class="btn btn-primary" value="{{ boton }}" [disabled]="productoForm.invalid" />
     </div>
 </form>

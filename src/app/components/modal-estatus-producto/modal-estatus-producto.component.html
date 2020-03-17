@@ -7,13 +7,14 @@
     </div>
     <div class="modal-body">
         <div class="form-group mb-3">
-            <div class="input-group">
+            <div class="form-group">
+                <label class="form-control-label" for="nombre">Descripción</label>
                 <input class="form-control" placeholder="Descripción" type="text" name="nombre" required #nombre="ngModel" [(ngModel)]="estatusProducto.nombre">
             </div>
         </div>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+        <button type="button" class="btn btn-danger" (click)="activeModal.close('Close click')">Cerrar</button>
         <input type="submit" class="btn btn-primary" value="{{ boton }}" [disabled]="estatusForm.invalid" />
     </div>
 </form>
