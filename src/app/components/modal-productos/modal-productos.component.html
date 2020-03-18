@@ -1,4 +1,4 @@
-<form #productoForm="ngForm" (ngSubmit)="saveEdit(productoForm)">
+<form [formGroup]="productForm" (ngSubmit)="saveEdit()">
     <div class="modal-header">
         <h4 class="modal-title">{{ title }}</h4>
         <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
@@ -11,19 +11,19 @@
                 <div class="form-group mb-3">
                     <div class="form-group">
                         <label class="form-control-label" for="descripcion_corta">Descripción corta</label>
-                        <input class="form-control form-control-alternative" placeholder="Descripción corta" type="text" name="descripcion_corta" required #descripcion_corta="ngModel" [(ngModel)]="producto.descripcion_corta">
+                        <input formControlName="descripcion_corta" class="form-control form-control-alternative" placeholder="Descripción corta" type="text" name="descripcion_corta" required>
                     </div>
                 </div>
                 <div class="form-group mb-3">
                     <div class="form-group">
                         <label class="form-control-label" for="inventario">Inventario</label>
-                        <input class="form-control form-control-alternative" placeholder="Inventario" type="text" name="inventario" required #inventario="ngModel" [(ngModel)]="producto.inventario">
+                        <input formControlName="inventario" class="form-control form-control-alternative" placeholder="Inventario" type="text" name="inventario" required>
                     </div>
                 </div>
                 <div class="form-group mb-3">
                     <div class="form-group">
                         <label class="form-control-label" for="cosoto">Costo</label>
-                        <input class="form-control form-control-alternative" placeholder="Costo" type="text" name="costo" required #costo="ngModel" [(ngModel)]="producto.costo">
+                        <input formControlName="costo" class="form-control form-control-alternative" placeholder="Costo" type="text" name="costo" required>
                     </div>
                 </div>
             </div>
@@ -31,15 +31,15 @@
                 <div class="form-group mb-3">
                     <div class="form-group">
                         <label class="form-control-label" for="precio_venta">Precio de venta</label>
-                        <input class="form-control form-control-alternative" placeholder="Precio de Venta" type="text" name="precio_venta" required #precio_venta="ngModel" [(ngModel)]="producto.precio_venta">
+                        <input formControlName="precio_venta" class="form-control form-control-alternative" placeholder="Precio de Venta" type="text" name="precio_venta" required>
                     </div>
                 </div>
                 <div class="form-group mb-3">
                     <div class="form-group">
                         <label class="form-control-label" for="estatus">Estatus del producto</label>
-                        <select class="form-control form-control-alternative" name="estatus" required [(ngModel)]="producto.estatus.id" [value]="producto.estatus.id">
-                            <option value="">Selecciona el estatus del producto...</option>
-                            <option *ngFor="let estatusP of estatusProductos" [value]="estatusP.id">
+                        <select class="form-control form-control-alternative" name="estatus" required formControlName="estatus">
+                            <option [ngValue]="null" disabled>Selecciona el estatus del producto...</option>
+                            <option *ngFor="let estatusP of estatusProductos" [ngValue]="estatusP.id">
                                {{ estatusP.nombre }}
                             </option>
                         </select>
@@ -48,9 +48,9 @@
                 <div class="form-group mb-3">
                     <div class="form-group">
                         <label class="form-control-label" for="categoria">Categoría del producto</label>
-                        <select class="form-control form-control-alternative" name="categoria" required [(ngModel)]="producto.categoria.id" [value]="producto.categoria.id">
-                            <option value="">Selecciona la categoría del producto...</option>
-                            <option *ngFor="let categoriaP of categoriasProductos" [value]="categoriaP.id">
+                        <select class="form-control form-control-alternative" name="categoria" required formControlName="categoria">
+                            <option [ngValue]="null" disabled>Selecciona la categoria del producto...</option>
+                            <option *ngFor="let categoriaP of categoriasProductos" [ngValue]="categoriaP.id">
                                 {{ categoriaP.nombre }}
                             </option>
                         </select>
@@ -63,6 +63,6 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-danger" (click)="activeModal.close('Click button')">Cerrar</button>
-        <input type="submit" class="btn btn-primary" value="{{ boton }}" [disabled]="productoForm.invalid" />
+        <input type="submit" class="btn btn-primary" value="{{ boton }}" />
     </div>
 </form>

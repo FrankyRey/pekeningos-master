@@ -6,8 +6,8 @@ import { ClientesComponent  } from '../../components/clientes/clientes.component
 import { ProductosComponent  } from '../../components/productos/productos.component';
 import { BoletosComponent  } from '../../components/boletos/boletos.component';
 import { OrdenesComponent  } from '../../components/ordenes/ordenes.component';
-import { EstatusProductosComponent } from '../../components/estatus-productos/estatus-productos.component'
-import { CategoriasProductosComponent } from '../../components/categorias-productos/categorias-productos.component'
+import { EstatusProductosComponent } from '../../components/estatus-productos/estatus-productos.component';
+import { CategoriasProductosComponent } from '../../components/categorias-productos/categorias-productos.component';
 
 
 export const AdminLayoutRoutes: Routes = [
