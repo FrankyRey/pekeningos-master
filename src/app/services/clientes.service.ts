@@ -25,10 +25,10 @@ export class ClientesService {
     return this._http.get('http://localhost:8000/api/clientes/' + email, {headers: headers});
   }
 
-  store(cliente, token): Observable<any> {
+  store(cliente): Observable<any> {
   	let json = JSON.stringify(cliente);
     let params = 'json='+json;
-    let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded').set('Authorization', token);
+    let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
 
     return this._http.post('http://localhost:8000/api/cliente', params, { headers:headers });
   }

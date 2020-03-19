@@ -14,6 +14,7 @@ import { RegistroClienteComponent } from '../registro-cliente/registro-cliente.c
 export class ValidaClienteComponent implements OnInit {
   public cliente: Cliente;
   public status: string;
+  public clienteEmail: string;
 
   constructor(
     private _clientesService: ClientesService,
@@ -27,6 +28,7 @@ export class ValidaClienteComponent implements OnInit {
   }
 
   valida(email) {
+    this.clienteEmail = email;
     this._clientesService.findEmail(email).subscribe(
       response => {
         if( response.status == 'success' ) {
@@ -41,6 +43,9 @@ export class ValidaClienteComponent implements OnInit {
         this.status = 'error';
         console.log(<any>error);
         const modalRef = this._modalService.open(RegistroClienteComponent);
+        modalRef.componentInstance.boton = 'Guardar';
+        modalRef.componentInstance.clienteEmail = this.clienteEmail;
+        console.log(this.clienteEmail);
       }
   );
   }

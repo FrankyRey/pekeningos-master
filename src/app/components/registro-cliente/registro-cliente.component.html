@@ -17,7 +17,7 @@
               dar un mejor servicio.</small
             >
           </div>
-          <form role="form">
+          <form [formGroup]="clientForm" (ngSubmit)="save()" role="form">
             <div class="form-group mb-3">
               <div class="input-group input-group-alternative">
                 <div class="input-group-prepend">
@@ -25,7 +25,12 @@
                     ><i class="ni ni-email-83"></i
                   ></span>
                 </div>
-                <input class="form-control" placeholder="Email" type="email" />
+                <input
+                  formControlName="email"
+                  class="form-control"
+                  placeholder="Email"
+                  type="email"
+                />
               </div>
             </div>
             <div class="form-group">
@@ -35,7 +40,12 @@
                     ><i class="ni ni-circle-08"></i
                   ></span>
                 </div>
-                <input class="form-control" placeholder="Nombre" type="text" />
+                <input
+                  formControlName="nombre"
+                  class="form-control"
+                  placeholder="Nombre"
+                  type="text"
+                />
               </div>
             </div>
             <div class="form-group">
@@ -49,70 +59,60 @@
                   class="form-control"
                   placeholder="Apellidos"
                   type="text"
+                  formControlName="apellidos"
                 />
               </div>
             </div>
             <label for="" class="align-content-center">Cumpleaños</label>
             <div class="row">
-              <div class="col-md-4">
+              <div class="col-md-12">
                 <div class="form-group">
-                    <div class="input-group input-group-alternative">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
-                      </div>
-                      <input class="form-control" placeholder="Día" type="text">
+                  <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"
+                        ><i class="ni ni-calendar-grid-58"></i
+                      ></span>
                     </div>
+                    <input
+                      formControlName="birthday"
+                      class="form-control"
+                      placeholder="Cumpleaños : 1991-12-25"
+                      type="text"
+                      [dropSpecialCharacters]="false"
+                      mask="0000-00-00"
+                    />
                   </div>
-                  
-              </div>
-              <div class="col-md-4">
-                <div class="form-group">
-                    <div class="input-group input-group-alternative">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
-                      </div>
-                      <input class="form-control" placeholder="Mes" type="text">
-                    </div>
-                  </div>
-                  
-              </div>
-              <div class="col-md-4">
-                <div class="form-group">
-                    <div class="input-group input-group-alternative">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
-                      </div>
-                      <input class="form-control" placeholder="Año" type="text">
-                    </div>
-                  </div>
-                  
+                </div>
               </div>
             </div>
             <div class="form-group">
-                <div class="input-group input-group-alternative">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"
-                      ><i class="ni ni-mobile-button"></i
-                    ></span>
-                  </div>
-                  <input
-                    class="form-control"
-                    placeholder="Teléfono/Celular"
-                    type="text"
-                  />
+              <div class="input-group input-group-alternative">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"
+                    ><i class="ni ni-mobile-button"></i
+                  ></span>
                 </div>
+                <input
+                  class="form-control"
+                  placeholder="Teléfono/Celular"
+                  type="text"
+                  formControlName="telefono"
+                />
               </div>
-              
+            </div>
 
             <div class="text-center">
-              <button type="button" class="btn btn-primary my-4" [routerLink]="['/resumen-venta']">
+              <button
+                type="submit"
+                class="btn btn-primary my-4"
+                value="{{ boton }}"
+              >
                 Ver resumen
               </button>
             </div>
           </form>
         </div>
       </div>
-      
     </div>
   </div>
 </div>

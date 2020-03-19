@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxMaskModule } from 'ngx-mask'
 
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
@@ -31,7 +32,8 @@ import { OrdenesService } from './services/ordenes.service';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule  
+    AppRoutingModule,
+    NgxMaskModule.forRoot()  
   ],
   declarations: [
     AppComponent,
