@@ -29,7 +29,7 @@ export class ModalProductosComponent implements OnInit {
   public categoriasProductos: Array<CategoriaProducto>;
   public estatusProductos: Array<EstatusProducto>;
   public status: string;
-  productForm: FormGroup;
+  public productForm: FormGroup;
 
   constructor(
     private _productosService: ProductosService,
@@ -37,9 +37,7 @@ export class ModalProductosComponent implements OnInit {
     private _categoriasProductosService: CategoriasProductosService,
     public activeModal: NgbActiveModal,
     private fb: FormBuilder
-  ) {
-    this.crearFormulario();
-  }
+  ) { }
 
   ngOnInit() {
      	this._categoriasProductosService.index().subscribe(
@@ -70,17 +68,19 @@ export class ModalProductosComponent implements OnInit {
        		this.status = 'error';
         	console.log(<any>error);
       	}
-    ); 
+    );
+    this.crearFormulario();
   }
 
   crearFormulario() {
     this.productForm = this.fb.group({
-      descripcion_corta: [""],
-      inventario: [""],
-      costo: [""],
-	  precio_venta: [""],
-	  estatus: [""],
-	  categoria: [""]
+      id: this.producto.id,
+      descripcion_corta: this.producto.descripcion_corta,
+      inventario: this.producto.inventario,
+      costo: this.producto.costo,
+	    precio_venta: this.producto.precio_venta,
+	    estatus: this.producto.estatus.id,
+	    categoria: this.producto.categoria.id
     })
   }
 
@@ -89,8 +89,8 @@ export class ModalProductosComponent implements OnInit {
       this._productosService.store(this.productForm.value, this.token).subscribe(
         response => {
           if (response.status == "success") {
-            this.productForm = response.productForm;
-            console.log(this.productForm);
+            this.producto = response.producto;
+            console.log(this.producto);
             this.activeModal.close("success");
           } else {
             console.log("Sin datos recuperados");
@@ -105,8 +105,8 @@ export class ModalProductosComponent implements OnInit {
       this._productosService.update(this.productForm.value, this.token).subscribe(
         response => {
           if (response.status == "success") {
-            this.productForm = response.productForm;
-            console.log(this.productForm);
+            this.producto = response.producto;
+            console.log(this.producto);
             this.activeModal.close("success");
           } else {
             console.log("Sin datos recuperados");

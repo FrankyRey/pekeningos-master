@@ -17,12 +17,12 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                   </div>
-                  <input class="form-control" placeholder="Email" type="email">
+                  <input class="form-control" placeholder="Email" type="email" #email>
                 </div>
               </div>
               <div class="text-center">
                 
-                <button type="button" class="btn btn-primary my-4" [routerLink]="['/registro-cliente']">Continuar</button>
+                <button type="button" class="btn btn-primary my-4" (click)="valida(email.value)">Continuar</button>
                 
               </div>
             </form>

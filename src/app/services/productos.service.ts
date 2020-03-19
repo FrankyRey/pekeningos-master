@@ -34,4 +34,10 @@ export class ProductosService {
 
     return this._http.put('http://localhost:8000/api/producto/' + producto.id, params, { headers:headers });
   }
+
+  destroy(id, token): Observable<any> {
+    let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded').set('Authorization', token);
+    
+    return this._http.delete('http://localhost:8000/api/producto/' + id, { headers:headers });
+  }
 }

@@ -6,6 +6,7 @@ import { FosUserService } from '../../services/fos-user.service';
 import { ProductosService } from '../../services/productos.service';
 
 import { EstatusProducto } from '../../models/estatus-producto';
+import { CategoriaProducto } from '../../models/categoria-producto';
 import { Producto } from '../../models/producto';
 
 import { ModalProductosComponent } from '../modal-productos/modal-productos.component';
@@ -24,6 +25,8 @@ export class ProductosComponent implements OnInit {
   	public estatusProductos: Array<EstatusProducto>;
   	public producto: Producto;
   	public productos: Array<Producto>;
+    public estatus: EstatusProducto;
+    public categoria: CategoriaProducto;
 
   	constructor(
     	private _estatusProdcutosService: EstatusProductosService,
@@ -33,7 +36,9 @@ export class ProductosComponent implements OnInit {
   	) {
     	this.identity = _fosUserService.getIdentity();
     	this.token = _fosUserService.getToken();
-    	this.producto = new Producto(1,'',0,0,'','');
+      	this.estatus = new EstatusProducto(0,'');
+      	this.categoria = new CategoriaProducto(0,'');
+    	this.producto = new Producto(1,'',0,0,0,0,0);
   	}
 
   	ngOnInit() {
@@ -44,7 +49,7 @@ export class ProductosComponent implements OnInit {
   		this._productosService.index().subscribe(
       		response => {
         		if( response.status == 'success' ) {
-          			this.productos = response.productos;
+					this.productos = response.productos;
           			console.log(this.productos);
         		} else {
           			console.log('Sin datos recuperados');
@@ -77,7 +82,32 @@ export class ProductosComponent implements OnInit {
 	  		modalRef.componentInstance.title = 'Actualizar Producto';
 	  		modalRef.componentInstance.token = this.token;
 	  		modalRef.componentInstance.identity = this.identity;
-	  		modalRef.componentInstance.producto = this.productos[indice];
+			modalRef.componentInstance.producto = this.productos[indice];
+			modalRef.result.then((result) => {
+				if ( result === 'success' ) {
+				   this.index(); // Refresh Data in table grid
+				}
+		  	}, (reason) => {
+		  	});
 		}	
-    }
+	}
+	
+	delete( indice = null) {
+		let id = this.productos[indice].id;
+		if(confirm("¿Esta seguro de eliminar este producto?")) {
+			this._productosService.destroy( id, this.token).subscribe(
+				response => {
+			  		if( response.status == 'success' ) {
+						this.index();
+			  		} else {
+						console.log('Sin datos recuperados');
+			  		}
+				},
+				error => {
+			  		this.status = 'error';
+			  		console.log(<any>error);
+				}
+			);
+		}
+	}
 }

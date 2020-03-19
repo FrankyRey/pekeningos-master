@@ -18,6 +18,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/estatusOrdenes', title: 'Estatus Ordenes',  icon:'ni-archive-2 text-primary', class: '', category:'Catálogo' },
     { path: '/categorias-productos', title: 'Categorias Productos',  icon:'ni-folder-17 text-orange', class: '', category:'Catálogo' },
     { path: '/estatus-productos', title: 'Estatus Productos',  icon:'ni-delivery-fast text-yellow', class: '', category:'Catálogo' },
+    { path: '/estatus-clientes', title: 'Estatus Clientes',  icon:'ni-delivery-fast text-yellow', class: '', category:'Catálogo' },
 ];
 
 @Component({

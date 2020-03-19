@@ -8,6 +8,7 @@ import { BoletosComponent  } from '../../components/boletos/boletos.component';
 import { OrdenesComponent  } from '../../components/ordenes/ordenes.component';
 import { EstatusProductosComponent } from '../../components/estatus-productos/estatus-productos.component';
 import { CategoriasProductosComponent } from '../../components/categorias-productos/categorias-productos.component';
+import { EstatusClientesComponent } from '../../components/estatus-clientes/estatus-clientes.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -19,4 +20,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'ordenes',           component: OrdenesComponent },
     { path: 'estatus-productos',           component: EstatusProductosComponent },
     { path: 'categorias-productos',           component: CategoriasProductosComponent },
+    { path: 'estatus-clientes',           component: EstatusClientesComponent },
 ];
