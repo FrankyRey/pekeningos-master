@@ -26,6 +26,7 @@ export class ClientesService {
   }
 
   store(cliente): Observable<any> {
+    console.log(cliente);
   	let json = JSON.stringify(cliente);
     let params = 'json='+json;
     let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');

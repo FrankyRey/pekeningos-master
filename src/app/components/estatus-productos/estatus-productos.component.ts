@@ -30,20 +30,24 @@ export class EstatusProductosComponent implements OnInit {
   	}
 
   	ngOnInit(): void {
-  		this._estatusProdcutosService.index().subscribe(
-      		response => {
-        		if( response.status == 'success' ) {
-          			this.estatusProductos = response.estatusProductos;
-          			console.log(this.estatusProductos);
-        		} else {
-          			console.log('Sin datos recuperados');
-        		}
-      		},
-      		error => {
-        		this.status = 'error';
-        		console.log(<any>error);
-      		}
-    	);
+  		this.index();
+	}
+
+	index() {
+		this._estatusProdcutosService.index().subscribe(
+			response => {
+			  if( response.status == 'success' ) {
+					this.estatusProductos = response.estatusProductos;
+					console.log(this.estatusProductos);
+			  } else {
+					console.log('Sin datos recuperados');
+			  }
+			},
+			error => {
+			  this.status = 'error';
+			  console.log(<any>error);
+			}
+	  );
 	}
 	  
     new( action, indice = null) {
@@ -53,7 +57,13 @@ export class EstatusProductosComponent implements OnInit {
 	  		modalRef.componentInstance.title = 'Agregar Nueva Categoria';
 	  		modalRef.componentInstance.token = this.token;
 	  		modalRef.componentInstance.identity = this.identity;
-		  	modalRef.componentInstance.estatusProducto = this.estatusProducto;
+			  modalRef.componentInstance.estatusProducto = this.estatusProducto;
+			  modalRef.result.then((result) => {
+				if ( result === 'success' ) {
+				   this.index(); // Refresh Data in table grid
+				}
+		  }, (reason) => {
+		  });
 		} else {
 			const modalRef = this._modalService.open(ModalEstatusProductoComponent);
 	  		modalRef.componentInstance.boton = 'Actualizar';
@@ -61,6 +71,12 @@ export class EstatusProductosComponent implements OnInit {
 	  		modalRef.componentInstance.token = this.token;
 	  		modalRef.componentInstance.identity = this.identity;
 			modalRef.componentInstance.estatusProducto = this.estatusProductos[indice];
+			modalRef.result.then((result) => {
+				if ( result === 'success' ) {
+				   this.index(); // Refresh Data in table grid
+				}
+		  	}, (reason) => {
+		  	});
 		}	
     }
 

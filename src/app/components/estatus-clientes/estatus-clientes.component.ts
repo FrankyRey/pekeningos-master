@@ -30,20 +30,24 @@ export class EstatusClientesComponent implements OnInit {
   	}
 
   	ngOnInit(): void {
-  		this._estatusClientesService.index().subscribe(
-      		response => {
-        		if( response.status == 'success' ) {
-          			this.estatusClientes = response.estatusClientes;
-          			console.log(this.estatusClientes);
-        		} else {
-          			console.log('Sin datos recuperados');
-        		}
-      		},
-      		error => {
-        		this.status = 'error';
-        		console.log(<any>error);
-      		}
-    	);
+  	this.index();
+	}
+
+	index(){
+		this._estatusClientesService.index().subscribe(
+			response => {
+			  if( response.status == 'success' ) {
+					this.estatusClientes = response.estatusClientes;
+					console.log(this.estatusClientes);
+			  } else {
+					console.log('Sin datos recuperados');
+			  }
+			},
+			error => {
+			  this.status = 'error';
+			  console.log(<any>error);
+			}
+	  );
 	}
 	  
   new( action, indice = null) {
@@ -54,6 +58,12 @@ export class EstatusClientesComponent implements OnInit {
 	  	modalRef.componentInstance.token = this.token;
 			modalRef.componentInstance.identity = this.identity;
 		  modalRef.componentInstance.estatusCliente = this.estatusCliente;
+		  modalRef.result.then((result) => {
+			if ( result === 'success' ) {
+			   this.index(); // Refresh Data in table grid
+			}
+	  }, (reason) => {
+	  });
 		} else {
 			const modalRef = this._modalService.open(ModalEstatusClientesComponent);
 	  	modalRef.componentInstance.boton = 'Actualizar';
@@ -61,6 +71,12 @@ export class EstatusClientesComponent implements OnInit {
 			modalRef.componentInstance.token = this.token;
 	  	modalRef.componentInstance.identity = this.identity;
 			modalRef.componentInstance.estatusCliente = this.estatusClientes[indice];
+			modalRef.result.then((result) => {
+				if ( result === 'success' ) {
+				   this.index(); // Refresh Data in table grid
+				}
+		  }, (reason) => {
+		  });
 		}	
   }
 

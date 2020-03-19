@@ -28,10 +28,10 @@ export class RegistroClienteComponent implements OnInit {
     
     this.clientForm = this.fb.group({
       email: this.clienteEmail,
-      nombre: '',
-      apellidos: '',
+      name: '',
+      last_name: '',
       birthday: '', 
-      telefono: ''
+      phone_number: ''
     })
   }
 
@@ -40,7 +40,7 @@ export class RegistroClienteComponent implements OnInit {
     this._clientesService.store(this.clientForm.value).subscribe(
       response => {
         if (response.status == "success") {
-          this.cliente = response.producto;
+          this.cliente = response.cliente;
           console.log(this.cliente);
           this.activeModal.close("success");
         } else {

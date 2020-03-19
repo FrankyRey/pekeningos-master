@@ -35,7 +35,7 @@ export class ModalEstatusProductoComponent implements OnInit {
           if( response.status == 'success' ) {
             this.estatusProducto = response.estatusProducto;
             console.log(this.estatusProducto);
-            this.activeModal.close();
+            this.activeModal.close("success");
           } else {
             console.log('Sin datos recuperados');
           }

@@ -35,7 +35,7 @@ export class ModalCategoriaProductoComponent implements OnInit {
           if( response.status == 'success' ) {
             this.categoriaProducto = response.categoriaProducto;
             console.log(this.categoriaProducto);
-            this.activeModal.close();
+            this.activeModal.close("success");
           } else {
             console.log('Sin datos recuperados');
           }

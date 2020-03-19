@@ -30,20 +30,24 @@ export class CategoriasProductosComponent implements OnInit {
   	}
 
   	ngOnInit(): void {
-  		this._categoriasProductosService.index().subscribe(
-      		response => {
-        		if( response.status == 'success' ) {
-          			this.categoriasProductos = response.categoriasProductos;
-          			console.log(this.categoriasProductos);
-        		} else {
-          			console.log('Sin datos recuperados');
-        		}
-      		},
-      		error => {
-        		this.status = 'error';
-        		console.log(<any>error);
-      		}
-    	);
+  		this.index();
+	}
+
+	index(){
+		this._categoriasProductosService.index().subscribe(
+			response => {
+			  if( response.status == 'success' ) {
+					this.categoriasProductos = response.categoriasProductos;
+					console.log(this.categoriasProductos);
+			  } else {
+					console.log('Sin datos recuperados');
+			  }
+			},
+			error => {
+			  this.status = 'error';
+			  console.log(<any>error);
+			}
+	  );
 	}
 	  
     new( action, indice = null) {
@@ -53,7 +57,13 @@ export class CategoriasProductosComponent implements OnInit {
 	  		modalRef.componentInstance.title = 'Agregar Nueva Categoria';
 	  		modalRef.componentInstance.token = this.token;
 	  		modalRef.componentInstance.identity = this.identity;
-		  	modalRef.componentInstance.categoriaProducto = this.categoriaProducto;
+			  modalRef.componentInstance.categoriaProducto = this.categoriaProducto;
+			  modalRef.result.then((result) => {
+				if ( result === 'success' ) {
+				   this.index(); // Refresh Data in table grid
+				}
+		  }, (reason) => {
+		  });
 		} else {
 			const modalRef = this._modalService.open(ModalCategoriaProductoComponent);
 	  		modalRef.componentInstance.boton = 'Actualizar';
@@ -61,6 +71,12 @@ export class CategoriasProductosComponent implements OnInit {
 	  		modalRef.componentInstance.token = this.token;
 	  		modalRef.componentInstance.identity = this.identity;
 			modalRef.componentInstance.categoriaProducto = this.categoriasProductos[indice];
+			modalRef.result.then((result) => {
+				if ( result === 'success' ) {
+				   this.index(); // Refresh Data in table grid
+				}
+		  }, (reason) => {
+		  });
 		}	
     }
 
