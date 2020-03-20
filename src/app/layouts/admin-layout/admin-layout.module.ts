@@ -17,6 +17,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 // import { ToastrModule } from 'ngx-toastr';
+import { NgxNumberSpinnerModule } from 'ngx-number-spinner';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ClipboardModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
+    NgxNumberSpinnerModule
   ],
   declarations: [
     DashboardComponent,

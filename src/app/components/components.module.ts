@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
-import { NgxMaskModule } from 'ngx-mask'
+import { NgxMaskModule } from 'ngx-mask';
+import {NgxNumberSpinnerModule} from 'ngx-number-spinner';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
@@ -27,6 +28,7 @@ import { ModalProductosComponent } from './modal-productos/modal-productos.compo
 import { ModalUsuariosComponent } from './modal-usuarios/modal-usuarios.component';
 import { EstatusClientesComponent } from './estatus-clientes/estatus-clientes.component';
 import { ModalEstatusClientesComponent } from './modal-estatus-clientes/modal-estatus-clientes.component';
+import { PagoAlimentosComponent } from './pago-alimentos/pago-alimentos.component';
 
 @NgModule({
   imports: [
@@ -35,7 +37,8 @@ import { ModalEstatusClientesComponent } from './modal-estatus-clientes/modal-es
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
+    NgxNumberSpinnerModule
   ],
   declarations: [
     FooterComponent,
@@ -60,7 +63,8 @@ import { ModalEstatusClientesComponent } from './modal-estatus-clientes/modal-es
     ModalProductosComponent,
     ModalUsuariosComponent,
     EstatusClientesComponent,
-    ModalEstatusClientesComponent
+    ModalEstatusClientesComponent,
+    PagoAlimentosComponent
   ],
   exports: [
     FooterComponent,

@@ -25,7 +25,6 @@
                 <tr>
                   <th scope="col">Concepto</th>
                   <th scope="col">Cantidad</th>
-                  <th scope="col">Precio unitario</th>
                   <th scope="col">Total</th>
                 </tr>
               </thead>
@@ -33,15 +32,6 @@
                 <tr>
                   <th scope="row">
                     <div class="media align-items-center">
-                      <a
-                        href="javascript:void(0)"
-                        class="avatar rounded-circle mr-3"
-                      >
-                        <img
-                          alt="Image placeholder"
-                          src="../assets/img/theme/bootstrap.jpg"
-                        />
-                      </a>
                       <div class="media-body">
                         <span class="mb-0 text-sm">Paquete 1</span>
                       </div>
@@ -52,25 +42,10 @@
                   </td>
                   <td>
                     <span class="badge badge-dot mr-4">
-                      $150.00
-                    </span>
-                  </td>
-                  <td>
-                    <span class="badge badge-dot mr-4">
-                      $750.00
+                      5
                     </span>
                   </td>
                   
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <h2>Total:</h2>
-                    </td>
-                    <td>
-                        <h2>$750.00</h2>
-                    </td>
                 </tr>
                 
               </tbody>
@@ -79,8 +54,8 @@
         </div>
         <div class="row pt-3 text-center">
             <div class="col-md-12">
-                <button class="btn btn-primary" [routerLink]="['/boletos-venta']">Imprimir</button>
-                <button class="btn btn-secondary" [routerLink]="['/boletos-venta']">Cambiar</button>
+                <button class="btn btn-success btn-block" [routerLink]="['/boletos-venta']">Imprimir</button>
+                <button class="btn btn-secondary btn-block" [routerLink]="['/boletos-venta']">Cambiar</button>
             </div>
         </div>
       </div>

@@ -14,3 +14,58 @@
     width: 200px;
 }
 
+.gradientBackground {
+    background-color: none!important;
+    background: linear-gradient(-45deg, #ebc461, #c33c3f, #dd9c3d, #c85747)!important;
+	background-size: 400% 400%!important;
+	animation: gradient 20s ease infinite!important;
+}
+
+header {
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+    background: black;
+    overflow: hidden;
+    background: #C33764;  /* fallback colour. Make sure this is just one solid colour. */
+    background: -webkit-linear-gradient(rgba(235, 196, 97, 0.8), rgba(216, 148, 146, 0.8)), url("https://bit.ly/2rlzaXi");
+    background: linear-gradient(rgba(235, 196, 97, 0.8), rgba(216, 148, 146, 0.8)), url("https://bit.ly/2rlzaXi"); /* The least supported option. */
+}
+
+.hero-header-text {
+    padding: 15px;
+}
+
+.headers-boletos-descripcion {
+    color:white;
+    font-weight: bold;
+}
+
+.headers-boletos-precio {
+    color:white;
+    
+}
+
+img {
+   object-fit: cover;
+}
+
+.spinner-style {
+    color:white;
+    font-weight: bold;
+}
+
+
+
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}

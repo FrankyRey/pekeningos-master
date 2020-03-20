@@ -9,6 +9,7 @@ import { NgxMaskModule } from 'ngx-mask'
 
 import { LoginComponent } from '../../pages/login/login.component';
 import { RegisterComponent } from '../../pages/register/register.component';
+import { NgxNumberSpinnerModule } from 'ngx-number-spinner';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { RegisterComponent } from '../../pages/register/register.component';
     ReactiveFormsModule,
     CommonModule,
     RouterModule.forChild(AuthLayoutRoutes),
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
+    NgxNumberSpinnerModule
     // NgbModule
   ],
   declarations: [

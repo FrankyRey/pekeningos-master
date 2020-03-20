@@ -22,6 +22,7 @@ import { ClientesService } from './services/clientes.service';
 import { ProductosService } from './services/productos.service';
 import { BoletosService } from './services/boletos.service';
 import { OrdenesService } from './services/ordenes.service';
+import { NgxNumberSpinnerModule } from 'ngx-number-spinner';
 
 @NgModule({
   imports: [
@@ -33,7 +34,8 @@ import { OrdenesService } from './services/ordenes.service';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    NgxMaskModule.forRoot()  
+    NgxMaskModule.forRoot(),
+    NgxNumberSpinnerModule  
   ],
   declarations: [
     AppComponent,
