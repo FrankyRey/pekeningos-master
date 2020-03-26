@@ -29,25 +29,17 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
+                <tr *ngFor="let producto of carrito; let i = index">
                   <th scope="row">
-                    <div class="media align-items-center">
-                      <div class="media-body">
-                        <span class="mb-0 text-sm">Paquete 1</span>
-                      </div>
-                    </div>
+                    {{ producto.descripcion }}
                   </th>
-                  <td>
-                    5
-                  </td>
-                  <td>
-                    <span class="badge badge-dot mr-4">
-                      5
-                    </span>
-                  </td>
-                  
+                  <th scope="row">
+                    {{ producto.cantidad }}
+                  </th>
+                  <th scope="row">
+                    {{ producto.precio_venta * producto.cantidad }}
+                  </th>
                 </tr>
-                
               </tbody>
             </table>
           </div>

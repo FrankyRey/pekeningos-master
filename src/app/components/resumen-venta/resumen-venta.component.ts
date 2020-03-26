@@ -8,11 +8,12 @@ import { OrdenesService } from '../../services/ordenes.service';
   providers: [ OrdenesService ]
 })
 export class ResumenVentaComponent implements OnInit {
+  public carrito: Array<any>;
 
   constructor(private _ordenesService: OrdenesService) { }
 
   ngOnInit(): void {
-    console.log(this._ordenesService.test());
+    this.carrito = JSON.parse(localStorage.getItem('orden'));
   }
 
 }

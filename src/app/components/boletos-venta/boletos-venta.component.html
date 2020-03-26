@@ -13,7 +13,7 @@
     <h2 class="text-white">Bienvenido. ¿Cuántos boletos deseas adquirir?</h2>
   </div>
   <div class="row justify-content-center pb-3">
-    <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6" *ngFor="let boleto of boletos">
+    <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6" *ngFor="let boleto of boletos; let i = index">
       <header>
         <section class="hero-header-text">
             <h1 class="headers-boletos-descripcion">{{ boleto.descripcion }}</h1>
@@ -22,9 +22,14 @@
               <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
                 
               </div>
-              <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
-                <ngx-number-spinner class="spinner-style" [min]="0" [max]="20"></ngx-number-spinner>  
+              <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8" *ngIf="boleto.cantidad; else elseBlock">
+                <ngx-number-spinner class="spinner-style" [min]="0" [max]="20" (change)="change(i,$event)" [value]="boleto.cantidad"></ngx-number-spinner>  
               </div>
+              <ng-template #elseBlock>
+                <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
+                  <ngx-number-spinner class="spinner-style" [min]="0" [max]="20" (change)="change(i,$event)"></ngx-number-spinner>  
+                </div>
+              </ng-template>
               <div class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
                 
               </div>
@@ -65,6 +70,6 @@
   </div>
   <div class="row center-content">
     <div class="col-md-12 text-center">
-      <button type="button" class="btn btn-danger my-4 btn-block" [routerLink]="['/valida-cliente']">Comprar</button>
+      <button type="button" class="btn btn-danger my-4 btn-block" (click)="verificar()">Comprar</button>
     </div>
   </div>

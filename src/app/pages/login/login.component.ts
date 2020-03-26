@@ -46,8 +46,19 @@ export class LoginComponent implements OnInit {
               // Persistir datos del usuario
               localStorage.setItem('token', this.token);
               localStorage.setItem('identity', JSON.stringify(this.identity));
-              //Redireccionar a AdminComponent
-              this._router.navigate(['/dashboard']);
+              
+              //Redireccionar a Pantalla
+              switch(this.identity.role){
+                case "ROLE_ADMIN":
+                  this._router.navigate(['/dashboard']);
+                  break;
+                case "ROLE_USER":
+                  this._router.navigate(['/dashboard']);
+                  break;
+                case "ROLE_VENTAS":
+                  this._router.navigate(['/dashboard']);
+                  break;
+              }
             },
             error => {
               this.status = 'error';
