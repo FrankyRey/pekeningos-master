@@ -71,21 +71,4 @@ export class BoletosVentaComponent implements OnInit {
     this._router.navigate(['/valida-cliente']);
   }
 
-  cantidad:number=1;
-  i=1;
-  plus(){
-    if(this.i != 20){
-      this.i++;
-      this.cantidad = this.i;
-
-    }
-  }
-  minus(){
-    if(this.i != 1){
-      this.i--;
-      this.cantidad = this.i;
-    
-    }
-  }
-
 }

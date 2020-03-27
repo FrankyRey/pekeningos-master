@@ -9,11 +9,20 @@ import { OrdenesService } from '../../services/ordenes.service';
 })
 export class ResumenVentaComponent implements OnInit {
   public carrito: Array<any>;
+  public total: number;
 
   constructor(private _ordenesService: OrdenesService) { }
 
   ngOnInit(): void {
     this.carrito = JSON.parse(localStorage.getItem('orden'));
+    console.log(this.carrito);
+    //Calculamos el TOTAL 
+    this.total = this.carrito.reduce((
+      actual,
+      next,
+    ) => actual + (next.precio_venta * next.cantidad),
+    0);
+    console.log("Total: ", this.total)
   }
-
+    
 }
