@@ -3,7 +3,7 @@ import { BoletosService } from '../../services/boletos.service';
 import { OrdenesService } from '../../services/ordenes.service';
 import { Boleto } from '../../models/boleto';
 import { Router, ActivatedRoute, Params } from "@angular/router";
-import { captureRejectionSymbol } from 'events';
+//import { captureRejectionSymbol } from 'events';
 import { Producto } from 'src/app/models/producto';
 
 @Component({

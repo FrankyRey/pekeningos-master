@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgxMaskModule } from 'ngx-mask'
+import { NgxMaskModule } from 'ngx-mask';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 import { ClipboardModule } from 'ngx-clipboard';
 
@@ -29,7 +30,8 @@ import { NgxNumberSpinnerModule } from 'ngx-number-spinner';
     FormsModule,
     ReactiveFormsModule,
     NgxMaskModule.forRoot(),
-    NgxNumberSpinnerModule
+    NgxNumberSpinnerModule,
+    NgxSpinnerModule
   ],
   declarations: [
     DashboardComponent,

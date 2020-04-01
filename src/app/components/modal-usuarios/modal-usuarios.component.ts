@@ -24,8 +24,8 @@ export class ModalUsuariosComponent implements OnInit {
   ) { }
 
   	ngOnInit() {
-  		this.roles = ['OTRO_ROL', 'ROLE_USER'];
-  		console.log(this.usuario)
+  		this.roles = ['ADMIN_USER', 'POS_USER', 'SALES_USER', 'FOOD_USER'];
+  		console.log(this.usuario);
   	}
 
   	saveEdit() {

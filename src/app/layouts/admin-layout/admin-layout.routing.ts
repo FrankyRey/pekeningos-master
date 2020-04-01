@@ -10,15 +10,19 @@ import { EstatusProductosComponent } from '../../components/estatus-productos/es
 import { CategoriasProductosComponent } from '../../components/categorias-productos/categorias-productos.component';
 import { EstatusClientesComponent } from '../../components/estatus-clientes/estatus-clientes.component';
 
+//Guard para URL
+import { IdentityGuardService } from '../../services/identity-guard.service';
+
+
 
 export const AdminLayoutRoutes: Routes = [
-    { path: 'dashboard',      component: DashboardComponent },
-    { path: 'fos-user',   component: FosUserComponent },
-    { path: 'clientes',         component: ClientesComponent },
-    { path: 'productos',          component: ProductosComponent },
-    { path: 'boletos',           component: BoletosComponent },
-    { path: 'ordenes',           component: OrdenesComponent },
-    { path: 'estatus-productos',           component: EstatusProductosComponent },
-    { path: 'categorias-productos',           component: CategoriasProductosComponent },
-    { path: 'estatus-clientes',           component: EstatusClientesComponent },
+    { path: 'dashboard',      component: DashboardComponent, canActivate: [IdentityGuardService] },
+    { path: 'fos-user',   component: FosUserComponent, canActivate: [IdentityGuardService] },
+    { path: 'clientes',         component: ClientesComponent, canActivate: [IdentityGuardService] },
+    { path: 'productos',          component: ProductosComponent, canActivate: [IdentityGuardService] },
+    { path: 'boletos',           component: BoletosComponent, canActivate: [IdentityGuardService] },
+    { path: 'ordenes',           component: OrdenesComponent, canActivate: [IdentityGuardService] },
+    { path: 'estatus-productos',           component: EstatusProductosComponent, canActivate: [IdentityGuardService] },
+    { path: 'categorias-productos',           component: CategoriasProductosComponent, canActivate: [IdentityGuardService] },
+    { path: 'estatus-clientes',           component: EstatusClientesComponent, canActivate: [IdentityGuardService] },
 ];

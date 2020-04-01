@@ -10,14 +10,17 @@ import { ValidaOrdenComponent } from '../../components/valida-orden/valida-orden
 import { PagoBoletosComponent } from '../../components/pago-boletos/pago-boletos.component';
 import { ProductosVentaComponent } from '../../components/productos-venta/productos-venta.component';
 
+//Guard para URL
+import { IdentityGuardService } from '../../services/identity-guard.service';
+
 export const AuthLayoutRoutes: Routes = [
     { path: 'login',          component: LoginComponent },
-    { path: 'dashboard',          component: DashboardComponent },
-    { path: 'boletos-venta',       component: BoletosVentaComponent },
-    { path: 'valida-cliente',       component: ValidaClienteComponent },
-    { path: 'registro-cliente', component: RegistroClienteComponent },
-    { path: 'resumen-venta', component: ResumenVentaComponent },
-    { path: 'valida-orden', component: ValidaOrdenComponent },
-    { path: 'pago-boletos', component: PagoBoletosComponent },
-    { path: 'productos-venta', component: ProductosVentaComponent }
+    { path: 'dashboard',          component: DashboardComponent, canActivate: [IdentityGuardService] },
+    { path: 'boletos-venta',       component: BoletosVentaComponent, canActivate: [IdentityGuardService] },
+    { path: 'valida-cliente',       component: ValidaClienteComponent, canActivate: [IdentityGuardService] },
+    { path: 'registro-cliente', component: RegistroClienteComponent, canActivate: [IdentityGuardService] },
+    { path: 'resumen-venta', component: ResumenVentaComponent, canActivate: [IdentityGuardService] },
+    { path: 'valida-orden', component: ValidaOrdenComponent, canActivate: [IdentityGuardService] },
+    { path: 'pago-boletos', component: PagoBoletosComponent, canActivate: [IdentityGuardService] },
+    { path: 'productos-venta', component: ProductosVentaComponent, canActivate: [IdentityGuardService] }
 ];

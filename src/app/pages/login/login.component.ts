@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute, Params } from "@angular/router";
 import { User } from '../../models/user';
 import { FosUserService } from '../../services/fos-user.service';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-login',
@@ -18,8 +19,9 @@ export class LoginComponent implements OnInit {
   constructor(
     private _FosUserService: FosUserService,  
     private _route: ActivatedRoute,
-    private _router: Router) {
-    this.user = new User(1,'','','','','ROLE_USER','','','');
+    private _router: Router,
+    private _spinner: NgxSpinnerService) {
+    this.user = new User(1,'','','','','','','','');
   }
 
   ngOnInit() {
@@ -47,18 +49,29 @@ export class LoginComponent implements OnInit {
               localStorage.setItem('token', this.token);
               localStorage.setItem('identity', JSON.stringify(this.identity));
               
+              this._spinner.show();
+                  
+              setTimeout(() => {
+                /** spinner ends after 5 seconds */
+                switch(this.identity.role){
+                  case "ADMIN_USER":
+                    this._router.navigate(['/dashboard']);    
+                    break;
+                  case "POS_USER":
+                    this._router.navigate(['/valida-orden']);
+                    break;
+                  case "SALES_USER":
+                    this._router.navigate(['/boletos-venta']);
+                    break;
+                  case "FOOD_USER":
+                    this._router.navigate(['/productos-venta']);
+                    break;
+                }
+                this._spinner.hide();
+              }, 3000);
+              
               //Redireccionar a Pantalla
-              switch(this.identity.role){
-                case "ROLE_ADMIN":
-                  this._router.navigate(['/dashboard']);
-                  break;
-                case "ROLE_USER":
-                  this._router.navigate(['/dashboard']);
-                  break;
-                case "ROLE_VENTAS":
-                  this._router.navigate(['/dashboard']);
-                  break;
-              }
+              
             },
             error => {
               this.status = 'error';

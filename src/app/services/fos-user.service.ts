@@ -62,8 +62,8 @@ export class FosUserService {
     return this.token;
   }
 
-  store( producto, token): Observable<any> {
-    let json = JSON.stringify(producto);
+  store( user, token): Observable<any> {
+    let json = JSON.stringify(user);
     let params = 'json='+json;
     let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded').set('Authorization', token);
 

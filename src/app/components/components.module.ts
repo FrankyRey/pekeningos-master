@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { NgxMaskModule } from 'ngx-mask';
+import { NgxSpinnerModule } from "ngx-spinner";
 import {NgxNumberSpinnerModule} from 'ngx-number-spinner';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -38,7 +39,8 @@ import { PagoAlimentosComponent } from './pago-alimentos/pago-alimentos.componen
     FormsModule,
     ReactiveFormsModule,
     NgxMaskModule.forRoot(),
-    NgxNumberSpinnerModule
+    NgxNumberSpinnerModule,
+    NgxSpinnerModule
   ],
   declarations: [
     FooterComponent,

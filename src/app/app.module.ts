@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgxMaskModule } from 'ngx-mask'
+import { NgxMaskModule } from 'ngx-mask';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
@@ -22,6 +23,7 @@ import { ClientesService } from './services/clientes.service';
 import { ProductosService } from './services/productos.service';
 import { BoletosService } from './services/boletos.service';
 import { OrdenesService } from './services/ordenes.service';
+import { IdentityGuardService } from './services/identity-guard.service';
 import { NgxNumberSpinnerModule } from 'ngx-number-spinner';
 
 @NgModule({
@@ -35,7 +37,8 @@ import { NgxNumberSpinnerModule } from 'ngx-number-spinner';
     ReactiveFormsModule,
     AppRoutingModule,
     NgxMaskModule.forRoot(),
-    NgxNumberSpinnerModule  
+    NgxNumberSpinnerModule,
+    NgxSpinnerModule  
   ],
   declarations: [
     AppComponent,
@@ -47,7 +50,8 @@ import { NgxNumberSpinnerModule } from 'ngx-number-spinner';
     ClientesService,
     ProductosService,
     BoletosService,
-    OrdenesService
+    OrdenesService,
+    IdentityGuardService
   ],
   bootstrap: [AppComponent]
 })
