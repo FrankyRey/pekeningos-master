@@ -30,6 +30,7 @@ import { ModalUsuariosComponent } from './modal-usuarios/modal-usuarios.componen
 import { EstatusClientesComponent } from './estatus-clientes/estatus-clientes.component';
 import { ModalEstatusClientesComponent } from './modal-estatus-clientes/modal-estatus-clientes.component';
 import { PagoAlimentosComponent } from './pago-alimentos/pago-alimentos.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   imports: [
@@ -66,7 +67,8 @@ import { PagoAlimentosComponent } from './pago-alimentos/pago-alimentos.componen
     ModalUsuariosComponent,
     EstatusClientesComponent,
     ModalEstatusClientesComponent,
-    PagoAlimentosComponent
+    PagoAlimentosComponent,
+    NotFoundComponent
   ],
   exports: [
     FooterComponent,
