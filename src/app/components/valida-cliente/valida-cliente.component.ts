@@ -34,6 +34,7 @@ export class ValidaClienteComponent implements OnInit {
         if( response.status == 'success' ) {
             this.cliente = response.cliente;
             console.log(this.cliente);
+            localStorage.setItem('cliente', JSON.stringify(this.cliente));
             this._router.navigate(['/resumen-venta']);
         } else {
             console.log('Sin datos recuperados');

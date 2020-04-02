@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { BoletosService } from '../../services/boletos.service';
 import { OrdenesService } from '../../services/ordenes.service';
-import { Boleto } from '../../models/boleto';
+import { BoletoV } from '../../models/boleto-v';
 import { Router, ActivatedRoute, Params } from "@angular/router";
+import { Cliente } from '../../models/cliente';
 //import { captureRejectionSymbol } from 'events';
 import { Producto } from 'src/app/models/producto';
 
@@ -14,8 +15,9 @@ import { Producto } from 'src/app/models/producto';
 })
 export class BoletosVentaComponent implements OnInit {
   public status: string;
-  public boletos: Array<Boleto>;
+  public boletos: Array<BoletoV>;
   public carritoR: Array<any>;
+  public cliente: Cliente;
 
   constructor(
     private _boletosService: BoletosService, 
@@ -26,6 +28,7 @@ export class BoletosVentaComponent implements OnInit {
 
   ngOnInit(): void {
     this.carritoR = JSON.parse(localStorage.getItem('orden'));
+    this.cliente = JSON.parse(localStorage.getItem('cliente'));
     console.log(this._boletosService.test());
     console.log(this._ordenesService.test());
     this._boletosService.publicados().subscribe(
@@ -33,7 +36,7 @@ export class BoletosVentaComponent implements OnInit {
         if( response.status == 'success' ) {
           this.boletos = response.boletos;
           console.log(this.boletos);
-          if(this.carritoR){
+          if(this.carritoR != null){
             let carr = this.carritoR;
             this.boletos.forEach(function(boleto){
               carr.forEach(function(producto){
@@ -68,7 +71,11 @@ export class BoletosVentaComponent implements OnInit {
 
     console.log(carrito);
     localStorage.setItem('orden', JSON.stringify(carrito));
-    this._router.navigate(['/valida-cliente']);
+    console.log(this.cliente);
+    if( this.cliente === null )
+      this._router.navigate(['/valida-cliente']);
+    else
+      this._router.navigate(['/resumen-venta']);
   }
 
 }
