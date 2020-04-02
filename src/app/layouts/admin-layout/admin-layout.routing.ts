@@ -12,17 +12,18 @@ import { EstatusClientesComponent } from '../../components/estatus-clientes/esta
 
 //Guard para URL
 import { IdentityGuardService } from '../../services/identity-guard.service';
+import { identity } from 'rxjs';
 
 
 
 export const AdminLayoutRoutes: Routes = [
-    { path: 'dashboard',      component: DashboardComponent, canActivate: [IdentityGuardService] },
-    { path: 'fos-user',   component: FosUserComponent, canActivate: [IdentityGuardService] },
-    { path: 'clientes',         component: ClientesComponent, canActivate: [IdentityGuardService] },
-    { path: 'productos',          component: ProductosComponent, canActivate: [IdentityGuardService] },
-    { path: 'boletos',           component: BoletosComponent, canActivate: [IdentityGuardService] },
-    { path: 'ordenes',           component: OrdenesComponent, canActivate: [IdentityGuardService] },
-    { path: 'estatus-productos',           component: EstatusProductosComponent, canActivate: [IdentityGuardService] },
-    { path: 'categorias-productos',           component: CategoriasProductosComponent, canActivate: [IdentityGuardService] },
-    { path: 'estatus-clientes',           component: EstatusClientesComponent, canActivate: [IdentityGuardService] },
+    { path: 'dashboard',      component: DashboardComponent, canActivate: [IdentityGuardService], data: {role: 'ADMIN_USER'} },
+    { path: 'fos-user',   component: FosUserComponent, canActivate: [IdentityGuardService], data: {role: 'ADMIN_USER'} },
+    { path: 'clientes',         component: ClientesComponent, canActivate: [IdentityGuardService], data: {role: 'ADMIN_USER'} },
+    { path: 'productos',          component: ProductosComponent, canActivate: [IdentityGuardService], data: {role: 'ADMIN_USER'} },
+    { path: 'boletos',           component: BoletosComponent, canActivate: [IdentityGuardService], data: {role: 'ADMIN_USER'} },
+    { path: 'ordenes',           component: OrdenesComponent, canActivate: [IdentityGuardService], data: {role: 'ADMIN_USER'} },
+    { path: 'estatus-productos',           component: EstatusProductosComponent, canActivate: [IdentityGuardService], data: {role: 'ADMIN_USER'} },
+    { path: 'categorias-productos',           component: CategoriasProductosComponent, canActivate: [IdentityGuardService], data: {role: 'ADMIN_USER'} },
+    { path: 'estatus-clientes',           component: EstatusClientesComponent, canActivate: [IdentityGuardService], data: {role: 'ADMIN_USER'} },
 ];

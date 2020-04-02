@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Router, CanActivate } from '@angular/router';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router, Route } from '@angular/router';
+import { Observable, identity } from 'rxjs';
 import { FosUserService } from './fos-user.service';
 
 @Injectable({
@@ -13,14 +14,16 @@ export class IdentityGuardService implements CanActivate {
     private _fosUserService: FosUserService
   ) { }
 
-  canActivate(){
-    let identity = this._fosUserService.getIdentity();
-
-    if(identity){
+  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+    let user = this._fosUserService.getIdentity();
+    
+    if (user.role === next.data.role && identity) {
       return true;
-    }else{
-      this._router.navigate(['/login']);
     }
+
+    // navigate to not found page
+    this._router.navigate(['/not-found']);
+    return false;
   }
 
 }
