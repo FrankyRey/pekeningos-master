@@ -14,7 +14,7 @@ export class AuthLayoutComponent implements OnInit, OnDestroy {
   public isCollapsed = true;
   public tokenStatus = false;
 
-  constructor(private router: Router, private _spinner: NgxSpinnerService) {}
+  constructor(public router: Router, private _spinner: NgxSpinnerService) {}
 
   ngOnInit() {
     var html = document.getElementsByTagName("html")[0];

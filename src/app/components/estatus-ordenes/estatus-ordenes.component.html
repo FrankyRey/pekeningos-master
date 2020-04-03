@@ -1,0 +1,58 @@
+<div class="header bg-gradient-yellow pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+      <div class="header-body">
+        <!-- Card stats -->
+        <div class="row">
+          <div class="col-xl-12 col-lg-12">
+            <h2 class="component-description">Estatus de las órdenes</h2>
+          </div>  
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid mt--7">
+    <div class="row">
+      <div class="col">
+        <div class="card shadow">
+          <div class="card-footer">
+            <button class="btn btn-success my-4 btn-block" (click)="new('save')"><i class="fas fa-folder-plus fa-2x fa-align-center"></i> Agregar estatus de la órden</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table align-items-center table-flush">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Código</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Acciones</th>
+                </tr>
+              </thead>
+              <tbody *ngIf="estatusOrdenes?.length > 0; else elseBlock">
+                <tr *ngFor="let estatus of estatusOrdenes; let i = index">
+                  <th scope="row">
+                    {{ estatus.id }}
+                  </th>
+                  <th scope="row">
+                    {{ estatus.nombre }}
+                  </th>
+                  <th>
+                    <a (click)="new( 'edit', i )" class="btn btn-link text-primary"><i class="fas fa-marker fa-2x text-yellow"></i></a>
+                  </th>
+                </tr>
+              </tbody>
+              <ng-template #elseBlock>
+                <tbody>
+                  <tr>
+                    <td colspan="2">
+                      Sin datos encontrados
+                    </td>
+                  </tr>
+                </tbody>
+              </ng-template>
+            </table>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+    

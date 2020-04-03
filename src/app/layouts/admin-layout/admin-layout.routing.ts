@@ -9,6 +9,7 @@ import { OrdenesComponent  } from '../../components/ordenes/ordenes.component';
 import { EstatusProductosComponent } from '../../components/estatus-productos/estatus-productos.component';
 import { CategoriasProductosComponent } from '../../components/categorias-productos/categorias-productos.component';
 import { EstatusClientesComponent } from '../../components/estatus-clientes/estatus-clientes.component';
+import { EstatusOrdenesComponent } from '../../components/estatus-ordenes/estatus-ordenes.component';
 
 //Guard para URL
 import { IdentityGuardService } from '../../services/identity-guard.service';
@@ -26,4 +27,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'estatus-productos',           component: EstatusProductosComponent, canActivate: [IdentityGuardService], data: {role: 'ADMIN_USER'} },
     { path: 'categorias-productos',           component: CategoriasProductosComponent, canActivate: [IdentityGuardService], data: {role: 'ADMIN_USER'} },
     { path: 'estatus-clientes',           component: EstatusClientesComponent, canActivate: [IdentityGuardService], data: {role: 'ADMIN_USER'} },
+    { path: 'estatus-ordenes',           component: EstatusOrdenesComponent, canActivate: [IdentityGuardService], data: {role: 'ADMIN_USER'} },
 ];
