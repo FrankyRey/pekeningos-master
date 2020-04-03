@@ -18,7 +18,8 @@ export class EstatusProductosComponent implements OnInit {
   	public token;
   	public estatusProducto: EstatusProducto;
   	public estatusProductos: Array<EstatusProducto>;
-
+	  public pages: number = 1;
+	  
   	constructor(
     	private _estatusProdcutosService: EstatusProductosService,
     	private _fosUserService: FosUserService,

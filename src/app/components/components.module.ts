@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { NgxMaskModule } from 'ngx-mask';
 import { NgxSpinnerModule } from "ngx-spinner";
 import {NgxNumberSpinnerModule} from 'ngx-number-spinner';
+import {NgxPaginationModule} from 'ngx-pagination';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
@@ -44,7 +45,8 @@ import { ModalEstatusOrdenesComponent } from './modal-estatus-ordenes/modal-esta
     ReactiveFormsModule,
     NgxMaskModule.forRoot(),
     NgxNumberSpinnerModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    NgxPaginationModule
   ],
   declarations: [
     FooterComponent,

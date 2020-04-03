@@ -27,7 +27,7 @@
                 </tr>
               </thead>
               <tbody *ngIf="estatusOrdenes?.length > 0; else elseBlock">
-                <tr *ngFor="let estatus of estatusOrdenes; let i = index">
+                <tr *ngFor="let estatus of estatusOrdenes | paginate: { itemsPerPage: 10, currentPage: pages}; let i = index">
                   <th scope="row">
                     {{ estatus.id }}
                   </th>
@@ -50,7 +50,9 @@
               </ng-template>
             </table>
           </div>
-         
+          <div class="card-footer float-right">
+            <pagination-controls previousLabel="" nextLabel="" class="pagination justify-content-end mb-0 pekes-paginacion" (pageChange)="pages = $event"></pagination-controls>
+          </div>
         </div>
       </div>
     </div>

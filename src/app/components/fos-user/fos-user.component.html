@@ -14,7 +14,7 @@
   <div class="row">
     <div class="col">
       <div class="card shadow">
-        <div class="card-footer float-right">
+        <div class="card-header float-right">
           <button class="btn btn-success my-4 btn-block" (click)="new('save')"><i class="fas fa-folder-plus fa-2x fa-align-center"></i> Agregar usuario</button>
         </div>
         <div class="table-responsive">
@@ -31,7 +31,7 @@
               </tr>
             </thead>
             <tbody *ngIf="usuarios?.length > 0; else elseBlock">
-              <tr *ngFor="let usuario of usuarios; let i = index">
+              <tr *ngFor="let usuario of usuarios | paginate: { itemsPerPage: 10, currentPage: pages}; let i = index;">
                 <th scope="row">
                   {{ usuario.id }}
                 </th>
@@ -66,7 +66,9 @@
             </ng-template>
           </table>
         </div>
-        
+        <div class="card-footer float-right">
+          <pagination-controls previousLabel="" nextLabel="" class="pagination justify-content-end mb-0 pekes-paginacion" (pageChange)="pages = $event"></pagination-controls>
+        </div>        
       </div>
     </div>
   </div>

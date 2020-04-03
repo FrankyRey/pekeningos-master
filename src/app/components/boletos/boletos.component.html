@@ -31,7 +31,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let boleto of boletos; let i = index">
+              <tr *ngFor="let boleto of boletos | paginate: { itemsPerPage: 10, currentPage: pages}; let i = index">
                 <th scope="row" class="text-center">
                   {{ boleto.id }}
                 </th>
@@ -63,7 +63,9 @@
             </tbody>
           </table>
         </div>
-        
+        <div class="card-footer float-right">
+          <pagination-controls previousLabel="" nextLabel="" class="pagination justify-content-end mb-0 pekes-paginacion" (pageChange)="pages = $event"></pagination-controls>
+        </div>
       </div>
     </div>
   </div>

@@ -29,7 +29,7 @@
                 </tr>
               </thead>
               <tbody *ngIf="clientes?.length > 0; else elseBlock">
-                <tr *ngFor="let cliente of clientes; let i = index">
+                <tr *ngFor="let cliente of clientes | paginate: { itemsPerPage: 10, currentPage: pages}; let i = index">
                   <th scope="row">
                     {{ cliente.id }}
                   </th>
@@ -64,8 +64,8 @@
               </ng-template>
             </table>
           </div>
-          <div class="card-footer">
-          
+          <div class="card-footer float-right">
+            <pagination-controls previousLabel="" nextLabel="" class="pagination justify-content-end mb-0 pekes-paginacion" (pageChange)="pages = $event"></pagination-controls>
           </div>
         </div>
       </div>

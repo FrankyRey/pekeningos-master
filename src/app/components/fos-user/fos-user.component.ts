@@ -16,7 +16,8 @@ export class FosUserComponent implements OnInit {
 	public usuario: User;
 	public usuarios: Array<User>;
 	public status;
-
+	public pages: number = 1;
+	
   constructor(
   	private _fosUserService: FosUserService,
   	private _modalService: NgbModal

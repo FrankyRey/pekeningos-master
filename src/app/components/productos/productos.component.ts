@@ -28,7 +28,8 @@ export class ProductosComponent implements OnInit {
   public productos: Array<Producto>;
   public estatus: EstatusProducto;
   public categoria: CategoriaProducto;
-
+  public pages: number = 1;
+	
   constructor(
     private _estatusProdcutosService: EstatusProductosService,
     private _fosUserService: FosUserService,

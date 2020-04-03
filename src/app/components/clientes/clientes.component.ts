@@ -19,7 +19,9 @@ export class ClientesComponent implements OnInit {
   	public token;
   	public cliente: Cliente;
   	public clientes: Array<Cliente>;
-    
+    public pages: number = 1;
+	
+
   constructor(private _clientesService: ClientesService, private _fosUserService: FosUserService,
     private _modalService: NgbModal,) { 
     this.identity = _fosUserService.getIdentity();

@@ -18,6 +18,8 @@ export class CategoriasProductosComponent implements OnInit {
   	public token;
   	public categoriaProducto: CategoriaProducto;
   	public categoriasProductos: Array<CategoriaProducto>;
+	  public pages: number = 1;
+	  
 
   	constructor(
     	private _categoriasProductosService: CategoriasProductosService,

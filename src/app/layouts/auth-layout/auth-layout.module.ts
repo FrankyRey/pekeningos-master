@@ -7,7 +7,7 @@ import { AuthLayoutRoutes } from './auth-layout.routing';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxMaskModule } from 'ngx-mask';
 import { NgxSpinnerModule } from "ngx-spinner";
-
+import {NgxPaginationModule} from 'ngx-pagination';
 import { LoginComponent } from '../../pages/login/login.component';
 import { RegisterComponent } from '../../pages/register/register.component';
 import { NgxNumberSpinnerModule } from 'ngx-number-spinner';
@@ -20,7 +20,8 @@ import { NgxNumberSpinnerModule } from 'ngx-number-spinner';
     RouterModule.forChild(AuthLayoutRoutes),
     NgxMaskModule.forRoot(),
     NgxNumberSpinnerModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    NgxPaginationModule
     // NgbModule
   ],
   declarations: [

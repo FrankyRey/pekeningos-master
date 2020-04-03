@@ -21,6 +21,8 @@ export class BoletosComponent implements OnInit {
   public token;
   public boleto: Boleto;
   public boletos: Array<Boleto>;
+  public pages: number = 1;
+	
 
   constructor(
     private _boletosService: BoletosService,

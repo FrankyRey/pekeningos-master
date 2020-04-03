@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskModule } from 'ngx-mask';
 import { NgxSpinnerModule } from "ngx-spinner";
-
+import {NgxPaginationModule} from 'ngx-pagination';
 import { ClipboardModule } from 'ngx-clipboard';
 
 import { AdminLayoutRoutes } from './admin-layout.routing';
@@ -31,7 +31,8 @@ import { NgxNumberSpinnerModule } from 'ngx-number-spinner';
     ReactiveFormsModule,
     NgxMaskModule.forRoot(),
     NgxNumberSpinnerModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    NgxPaginationModule
   ],
   declarations: [
     DashboardComponent,
