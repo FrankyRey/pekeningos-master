@@ -38,7 +38,7 @@ import { NgxNumberSpinnerModule } from 'ngx-number-spinner';
     AppRoutingModule,
     NgxMaskModule.forRoot(),
     NgxNumberSpinnerModule,
-    NgxSpinnerModule  
+    NgxSpinnerModule
   ],
   declarations: [
     AppComponent,

@@ -89,7 +89,7 @@
       </form>
       <!-- Navigation -->
       <ul class="navbar-nav">
-        <h3>Módulos</h3>
+        <h3 style="padding-left: 10px;">Módulos</h3>
 
         <li *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
             <a *ngIf=" menuItem.category == 'Módulo'" routerLinkActive="active" [routerLink]="[menuItem.path]" class="nav-link">
@@ -98,7 +98,7 @@
             </a>
         </li>
 
-        <h3>Catálogos</h3>
+        <h3 style="padding-left: 10px;">Catálogos</h3>
 
         <li *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
           <a *ngIf=" menuItem.category == 'Catálogo'" routerLinkActive="active" [routerLink]="[menuItem.path]" class="nav-link">

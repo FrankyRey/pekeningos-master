@@ -14,8 +14,8 @@
     <div class="row">
       <div class="col">
         <div class="card shadow">
-          <div class="card-header border-0">
-            <h3 class="mb-0">Estatus</h3>
+          <div class="card-footer">
+            <button class="btn btn-success my-4 btn-block" (click)="new('save')"><i class="fas fa-folder-plus fa-2x fa-align-center"></i>   Agregar estatus de clientes</button>
           </div>
           <div class="table-responsive">
             <table class="table align-items-center table-flush">
@@ -35,7 +35,7 @@
                     {{ estatus.nombre }}
                   </th>
                   <th>
-                    <a (click)="new( 'edit', i )" class="btn btn-link text-primary">Editar</a>
+                    <a (click)="new( 'edit', i )" class="btn btn-link text-primary"><i class="fas fa-marker fa-2x text-yellow"></i></a>
                   </th>
                 </tr>
               </tbody>
@@ -50,9 +50,7 @@
               </ng-template>
             </table>
           </div>
-          <div class="card-footer">
-            <button class="btn btn-primary my-4" (click)="new('save')">Agregar Nuevo</button>
-          </div>
+         
         </div>
       </div>
     </div>

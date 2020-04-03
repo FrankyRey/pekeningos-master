@@ -16,8 +16,8 @@
   <div class="row">
     <div class="col">
       <div class="card shadow">
-        <div class="card-header border-0">
-          <h3 class="mb-0">Boletos</h3>
+        <div class="card-footer">
+          <button class="btn btn-success my-4 btn-block" (click)="new('save')"><i class="fas fa-folder-plus fa-2x fa-align-center"></i>  Agregar boleto</button>
         </div>
         <div class="table-responsive">
           <table class="table align-items-center table-flush">
@@ -54,119 +54,16 @@
                   <span class="clearfix"></span>
                 </td>
                 <td scope="row">
-                  <a
-                    (click)="edit(i)"
-                    class="btn btn-link"
-                    data-toggle="modal"
-                    data-target="#nuevoBoleto"
-                    >Editar</a
-                  >
+                  <a (click)="new( 'edit', i )" class="btn btn-link text-primary"><i class="fas fa-marker fa-2x text-yellow"></i></a>
                   <a (click)="delete(boleto.id)" class="btn btn-link"
-                    >Eliminar</a
+                    ><i class="fas fa-trash-alt fa-2x text-danger"></i></a
                   >
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
-        <div class="card-footer">
-          <button
-            class="btn btn-primary my-4"
-            role="button"
-            data-toggle="modal"
-            data-target="#nuevoBoleto"
-          >
-            Agregar Nuevo
-          </button>
-        </div>
+        
       </div>
     </div>
   </div>
-  <!-- Modal -->
-  <div
-    class="modal fade"
-    id="nuevoBoleto"
-    tabindex="-1"
-    role="dialog"
-    aria-labelledby="nuevoBoleto"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <form #boletoForm="ngForm" (ngSubmit)="save(boletoForm)">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Nuevo Boleto</h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="form-group mb-3">
-              <div class="form-group">
-                <label class="form-control-label" for="nombre"
-                  >Descripción del boleto</label
-                >
-                <input
-                  class="form-control form-control-alternative"
-                  placeholder="Descripción"
-                  type="text"
-                  name="descripcion"
-                  required
-                  #descripcion="ngModel"
-                  [(ngModel)]="boleto.descripcion"
-                />
-              </div>
-            </div>
-            <div class="form-group mb-3">
-              <div class="form-group">
-                <label class="form-control-label" for="nombre"
-                  >Precio de venta</label
-                >
-                <input
-                  class="form-control form-control-alternative"
-                  placeholder="Precio"
-                  type="text"
-                  name="precio_venta"
-                  required
-                  #precio_venta="ngModel"
-                  [(ngModel)]="boleto.precio_venta"
-                />
-              </div>
-            </div>
-            <div class="form-group mb-3">
-              <div class="form-group">
-                <label class="custom-toggle">
-                  <input
-                    type="checkbox"
-                    name="publicado"
-                    [(ngModel)]="boleto.publicado"
-                    #publicado="ngModel"
-                  />
-                  <span class="custom-toggle-slider rounded-circle"></span>
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">
-              Cerrar
-            </button>
-            <div class="text-center">
-              <input
-                type="submit"
-                class="btn btn-primary"
-                value="{{ boleto.button }}"
-                [disabled]="boletoForm.invalid"
-              />
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>

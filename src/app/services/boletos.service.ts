@@ -49,6 +49,7 @@ export class BoletosService {
 
   update(boleto, token): Observable<any> {
     let json = JSON.stringify(boleto);
+    console.log(boleto);
     let params = 'json='+json;
     let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded').set('Authorization', token);
 

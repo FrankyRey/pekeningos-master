@@ -31,6 +31,7 @@ import { EstatusClientesComponent } from './estatus-clientes/estatus-clientes.co
 import { ModalEstatusClientesComponent } from './modal-estatus-clientes/modal-estatus-clientes.component';
 import { PagoAlimentosComponent } from './pago-alimentos/pago-alimentos.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ModalBoletosComponent } from './modal-boletos/modal-boletos.component';
 
 @NgModule({
   imports: [
@@ -68,7 +69,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     EstatusClientesComponent,
     ModalEstatusClientesComponent,
     PagoAlimentosComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ModalBoletosComponent
   ],
   exports: [
     FooterComponent,
